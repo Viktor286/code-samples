@@ -8,9 +8,9 @@ interface ITreeNode {
 
 class TreeNode implements ITreeNode {
     constructor(
-        public value: Alphanumeric,
-        public left: TreeNode,
-        public right: TreeNode,
+        public value: Alphanumeric = 'N/A',
+        public left: TreeNode = null,
+        public right: TreeNode = null,
     ) {}
 }
 

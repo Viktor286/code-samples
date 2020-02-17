@@ -1,6 +1,7 @@
-import { Alphanumeric } from '../Data/types';
-import TreeNode from '../Data/BinaryTrees/TreeNode';
-import tree from '../Data/BinaryTrees/Tree_01';
+import { Alphanumeric } from '../../Data/types';
+import TreeNode from '../../Data/BinaryTrees/TreeNode';
+import { serializedTree } from '../../Data/BinaryTrees/Tree_01';
+import { deserialize } from "./TreeConvertor";
 
 function preOrderIterativeTraverse(root: TreeNode):Alphanumeric[] {
     let collection: Alphanumeric[] = [];
@@ -37,5 +38,5 @@ function preOrderRecursiveTraverse(root: TreeNode):Alphanumeric[] {
     return collection;
 }
 
-console.log(preOrderIterativeTraverse(tree));
-console.log(preOrderRecursiveTraverse(tree));
+console.log(preOrderIterativeTraverse(deserialize(serializedTree)));
+console.log(preOrderRecursiveTraverse(deserialize(serializedTree)));
