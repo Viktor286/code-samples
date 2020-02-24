@@ -1,5 +1,5 @@
-import { SerializedBiTree, Alphanumeric } from '../../Data/types';
-import TreeNode from '../../Data/BinaryTrees/TreeNode';
+import { SerializedBiTree, Alphanumeric } from '../Types';
+import TreeNode from './TreeNode';
 
 export function deserialize(treeArr: SerializedBiTree): TreeNode {
   if (treeArr.length === 0) return null;

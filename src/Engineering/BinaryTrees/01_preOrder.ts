@@ -1,5 +1,5 @@
-import { Alphanumeric } from '../../Data/types';
-import TreeNode from '../../Data/BinaryTrees/TreeNode';
+import { Alphanumeric } from '../Types';
+import TreeNode from './TreeNode';
 
 export function preOrderIterativeTraverse(root: TreeNode): Alphanumeric[] {
   const collection: Alphanumeric[] = [];

@@ -1,4 +1,4 @@
-import { Alphanumeric } from '../types';
+import { Alphanumeric } from '../Types';
 
 interface ITreeNode {
   value: Alphanumeric;
