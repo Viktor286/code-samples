@@ -3,7 +3,7 @@ import {
   preOrderRecursiveTraverse,
 } from './Engineering/BinaryTrees/01_preOrder';
 import { deserialize } from './Engineering/BinaryTrees/TreeConvertor';
-import { serializedTree } from './Data/BinaryTrees/Tree_01';
+import { SerializedTree } from './Data/BinaryTrees/SerializedTree';
 
-console.log(preOrderIterativeTraverse(deserialize(serializedTree)));
-console.log(preOrderRecursiveTraverse(deserialize(serializedTree)));
+console.log(preOrderIterativeTraverse(deserialize(SerializedTree)));
+console.log(preOrderRecursiveTraverse(deserialize(SerializedTree)));
