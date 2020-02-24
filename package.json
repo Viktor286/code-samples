@@ -13,13 +13,11 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "test": "jest --coverage",
-    "lint": "concurrently \"npm run lint:src\" \"npm run lint:spec\"",
-    "format": "prettier \"src/**/*.ts\" --ignore-path ./.prettierignore --write",
-    "lint:src": "eslint src/**/*.ts --fix --ignore-pattern *.spec.ts",
-    "lint:spec": "eslint **/**.spec.ts -c .eslintrc.spec.js --fix",
     "test:watch": "jest --coverage --watchAll",
-    "tpsc": "tsc -w --listFiles --traceResolution",
-    "precommit": "npm run lint && npm test && npm run format"
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier \"src/**/*.ts\" --ignore-path ./.prettierignore --write",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "build:tsc": "tsc -w --listFiles --traceResolution"
   },
   "author": "",
   "license": "ISC",
@@ -43,5 +41,11 @@
   ],
   "require": [
     "ts-node/register"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test && npm run lint"
+    }
+  }
 }
