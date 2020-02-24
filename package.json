@@ -1,17 +1,25 @@
 {
   "name": "codesamples",
   "version": "1.0.0",
-  "description": "",
+  "description": "Different code samples",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Viktor286/code-samples"
+  },
+  "engines": {
+    "node": ">= 12.16.1"
+  },
   "scripts": {
     "start": "ts-node src/index.ts",
+    "test": "jest --coverage",
     "lint": "concurrently \"npm run lint:src\" \"npm run lint:spec\"",
+    "format": "prettier \"src/**/*.ts\" --ignore-path ./.prettierignore --write",
     "lint:src": "eslint src/**/*.ts --fix --ignore-pattern *.spec.ts",
     "lint:spec": "eslint **/**.spec.ts -c .eslintrc.spec.js --fix",
-    "format": "prettier \"src/**/*.ts\" --ignore-path ./.prettierignore --write",
-    "test": "jest --coverage",
     "test:watch": "jest --coverage --watchAll",
-    "tpsc": "tsc -w --listFiles --traceResolution"
+    "tpsc": "tsc -w --listFiles --traceResolution",
+    "precommit": "npm run lint && npm test && npm run format"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +31,7 @@
     "concurrently": "^5.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "ts-jest": "^25.2.1",
@@ -31,5 +40,8 @@
   },
   "extension": [
     ".ts"
+  ],
+  "require": [
+    "ts-node/register"
   ]
 }
