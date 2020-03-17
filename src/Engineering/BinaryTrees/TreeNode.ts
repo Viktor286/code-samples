@@ -1,6 +1,6 @@
 import { Alphanumeric } from '../Types';
 
-interface ITreeNode {
+export interface ITreeNode {
   value: Alphanumeric;
   left: TreeNode | null;
   right: TreeNode | null;

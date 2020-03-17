@@ -2,13 +2,15 @@ import {
   preOrderIterativeTraverse,
   preOrderRecursiveTraverse,
 } from './01_preOrder';
-import { deserialize } from './TreeConvertor';
+import BinaryTree from './BinaryTree';
 import { SerializedTree_01 } from '../../DataFixtures/BinaryTrees/SerializedTree_01';
 
 describe('preOrderIterativeTraverse', () => {
   it('should return known shape of serialized tree', () => {
     expect(
-      preOrderIterativeTraverse(deserialize(SerializedTree_01)).toString(),
+      preOrderIterativeTraverse(
+        BinaryTree.deserialize(SerializedTree_01),
+      ).toString(),
     ).toBe('1,2,3');
   });
 });
@@ -16,7 +18,9 @@ describe('preOrderIterativeTraverse', () => {
 describe('preOrderRecursiveTraverse', () => {
   it('should return known shape of serialized tree', () => {
     expect(
-      preOrderRecursiveTraverse(deserialize(SerializedTree_01)).toString(),
+      preOrderRecursiveTraverse(
+        BinaryTree.deserialize(SerializedTree_01),
+      ).toString(),
     ).toBe('1,2,3');
   });
 });
