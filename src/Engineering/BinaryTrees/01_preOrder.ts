@@ -31,7 +31,7 @@ export function preOrderRecursiveTraverse(root: TreeNode): Alphanumeric[] {
     if (root.right) traverseAndCollect(root.right); // executionStack.push()
   };
 
-  traverseAndCollect(root); // executionStack.push() until length > 0
+  if (root) traverseAndCollect(root); // executionStack.push() until length > 0
 
   return collection;
 }
