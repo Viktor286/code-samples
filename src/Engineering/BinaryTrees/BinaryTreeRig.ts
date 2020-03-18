@@ -1,19 +1,19 @@
 import TreeNode from './TreeNode';
 import { Alphanumeric, SerializedBiTree } from '../Types';
 
-interface IBinaryTree {
-  tree: TreeNode;
+interface IBinaryTreeRig {
+  treeContent: TreeNode;
   getAllNodesInPreOrder(): TreeNode[];
 }
 
-export default class BinaryTree implements IBinaryTree {
-  constructor(public tree: TreeNode) {}
+export default class BinaryTreeRig implements IBinaryTreeRig {
+  constructor(public treeContent: TreeNode) {}
 
   getAllNodesInPreOrder() {
     const collection: TreeNode[] = [];
     const stack: TreeNode[] = [];
 
-    if (this.tree) stack.push(this.tree);
+    if (this.treeContent) stack.push(this.treeContent);
 
     while (stack.length > 0) {
       const node = stack.pop();
@@ -27,7 +27,7 @@ export default class BinaryTree implements IBinaryTree {
     return collection;
   }
 
-  static deserialize(treeArr: SerializedBiTree): TreeNode {
+  static deserializeTree(treeArr: SerializedBiTree): TreeNode {
     if (treeArr.length === 0) return null;
 
     let nodePointer = 0;

@@ -2,12 +2,12 @@ import {
   preOrderIterativeTraverse,
   preOrderRecursiveTraverse,
 } from './Engineering/BinaryTrees/01_preOrder';
-import BinaryTree from './Engineering/BinaryTrees/BinaryTree';
+import BinaryTreeRig from './Engineering/BinaryTrees/BinaryTreeRig';
 import { SerializedTree_01 } from './DataFixtures/BinaryTrees/SerializedTree_01';
 
 console.log(
-  preOrderIterativeTraverse(BinaryTree.deserialize(SerializedTree_01)),
+  preOrderIterativeTraverse(BinaryTreeRig.deserializeTree(SerializedTree_01)),
 );
 console.log(
-  preOrderRecursiveTraverse(BinaryTree.deserialize(SerializedTree_01)),
+  preOrderRecursiveTraverse(BinaryTreeRig.deserializeTree(SerializedTree_01)),
 );
