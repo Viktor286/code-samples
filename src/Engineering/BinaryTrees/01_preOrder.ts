@@ -1,9 +1,9 @@
 import { Alphanumeric } from '../Types';
-import TreeNode from './TreeNode';
+import { ITreeNode } from './TreeNode';
 
-export function preOrderIterativeTraverse(root: TreeNode): Alphanumeric[] {
+export function preOrderIterativeTraverse(root: ITreeNode): Alphanumeric[] {
   const collection: Alphanumeric[] = [];
-  const stack: TreeNode[] = [];
+  const stack: ITreeNode[] = [];
 
   if (root) stack.push(root);
 
@@ -19,10 +19,10 @@ export function preOrderIterativeTraverse(root: TreeNode): Alphanumeric[] {
   return collection;
 }
 
-export function preOrderRecursiveTraverse(root: TreeNode): Alphanumeric[] {
+export function preOrderRecursiveTraverse(root: ITreeNode): Alphanumeric[] {
   const collection: Alphanumeric[] = [];
 
-  const traverseAndCollect: Function = (root: TreeNode): void => {
+  const traverseAndCollect: Function = (root: ITreeNode): void => {
     // executionStack.pop()
 
     collection.push(root.value);
