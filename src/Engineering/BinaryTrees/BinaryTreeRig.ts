@@ -6,7 +6,13 @@ interface IBinaryTreeRig {
   getAllNodesInPreOrder(): TreeNode[];
 }
 
-export default class BinaryTreeRig implements IBinaryTreeRig {
+interface IBinaryTreeRigConstructor {
+  new (treeContent: TreeNode): IBinaryTreeRig;
+  deserializeTree(treeArr: SerializedBiTree): TreeNode;
+}
+
+const BinaryTreeRig: IBinaryTreeRigConstructor = class BinaryTreeRig
+  implements IBinaryTreeRig {
   constructor(public treeContent: TreeNode) {}
 
   getAllNodesInPreOrder() {
@@ -60,4 +66,6 @@ export default class BinaryTreeRig implements IBinaryTreeRig {
 
     return root;
   }
-}
+};
+
+export default BinaryTreeRig;
