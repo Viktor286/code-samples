@@ -1,4 +1,4 @@
-import { SerializedBiTree } from '../../Engineering/Types';
+import { SerializedBiTree } from '../../Types';
 
 export const SerializedTreeList: SerializedBiTree[] = [
   [null],

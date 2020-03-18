@@ -1,5 +1,5 @@
 import TreeNode, { ITreeNode } from './TreeNode';
-import { Alphanumeric, SerializedBiTree } from '../Types';
+import { Alphanumeric, SerializedBiTree } from '../../Types';
 
 interface IBinaryTreeRig {
   treeContent: ITreeNode;

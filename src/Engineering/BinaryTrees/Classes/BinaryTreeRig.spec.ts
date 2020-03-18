@@ -1,4 +1,4 @@
-import { SerializedTreeList } from '../../DataFixtures/BinaryTrees/SerializedTreeList';
+import { SerializedTreeList } from '../DataFixtures/SerializedTreeList';
 import BinaryTreeRig from './BinaryTreeRig';
 import TreeNode from './TreeNode';
 

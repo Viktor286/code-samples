@@ -2,8 +2,8 @@ import {
   preOrderIterativeTraverse,
   preOrderRecursiveTraverse,
 } from './01_preOrder';
-import BinaryTreeRig from './BinaryTreeRig';
-import { SerializedTreeList } from '../../DataFixtures/BinaryTrees/SerializedTreeList';
+import BinaryTreeRig from './Classes/BinaryTreeRig';
+import { SerializedTreeList } from './DataFixtures/SerializedTreeList';
 
 describe('preOrderIterativeTraverse', () => {
   it('should return empty array if root node is null', () => {

@@ -2,8 +2,8 @@ import {
   preOrderIterativeTraverse,
   preOrderRecursiveTraverse,
 } from './Engineering/BinaryTrees/01_preOrder';
-import BinaryTreeRig from './Engineering/BinaryTrees/BinaryTreeRig';
-import { SerializedTreeList } from './DataFixtures/BinaryTrees/SerializedTreeList';
+import BinaryTreeRig from './Engineering/BinaryTrees/Classes/BinaryTreeRig';
+import { SerializedTreeList } from './Engineering/BinaryTrees/DataFixtures/SerializedTreeList';
 
 console.log(
   preOrderIterativeTraverse(
