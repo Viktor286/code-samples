@@ -6,6 +6,10 @@ import BinaryTreeRig from './BinaryTreeRig';
 import { SerializedTreeList } from '../../DataFixtures/BinaryTrees/SerializedTreeList';
 
 describe('preOrderIterativeTraverse', () => {
+  it('should return empty array if root node is null', () => {
+    expect(preOrderIterativeTraverse(null)).toStrictEqual([]);
+  });
+
   it('should return known shape of serialized tree', () => {
     expect(
       preOrderIterativeTraverse(
@@ -16,6 +20,10 @@ describe('preOrderIterativeTraverse', () => {
 });
 
 describe('preOrderRecursiveTraverse', () => {
+  it('should return empty array if root node is null', () => {
+    expect(preOrderRecursiveTraverse(null)).toStrictEqual([]);
+  });
+
   it('should return known shape of serialized tree', () => {
     expect(
       preOrderRecursiveTraverse(
