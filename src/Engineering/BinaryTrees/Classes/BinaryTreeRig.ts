@@ -1,23 +1,23 @@
-import TreeNode, { ITreeNode } from './TreeNode';
+import TreeNode from './TreeNode';
 import { Alphanumeric, SerializedBiTree } from '../../Types';
 
 interface IBinaryTreeRig {
-  treeContent: ITreeNode;
-  getAllNodesInPreOrder(): ITreeNode[];
+  treeContent: TreeNode;
+  getAllNodesInPreOrder(): TreeNode[];
 }
 
 interface IBinaryTreeRigConstructor {
-  new (treeContent: ITreeNode): IBinaryTreeRig;
-  deserializeTree(treeArr: SerializedBiTree): ITreeNode;
+  new (treeContent: TreeNode): IBinaryTreeRig;
+  deserializeTree(treeArr: SerializedBiTree): TreeNode;
 }
 
 const BinaryTreeRig: IBinaryTreeRigConstructor = class BinaryTreeRig
   implements IBinaryTreeRig {
-  constructor(public treeContent: ITreeNode) {}
+  constructor(public treeContent: TreeNode) {}
 
   getAllNodesInPreOrder() {
-    const collection: ITreeNode[] = [];
-    const stack: ITreeNode[] = [];
+    const collection: TreeNode[] = [];
+    const stack: TreeNode[] = [];
 
     if (this.treeContent) stack.push(this.treeContent);
 
@@ -33,21 +33,21 @@ const BinaryTreeRig: IBinaryTreeRigConstructor = class BinaryTreeRig
     return collection;
   }
 
-  static deserializeTree(treeArr: SerializedBiTree): ITreeNode {
+  static deserializeTree(treeArr: SerializedBiTree): TreeNode {
     if (treeArr.length === 0) return null;
 
     let nodePointer = 0;
     const root = new TreeNode(treeArr[nodePointer++]);
-    const queue: ITreeNode[] = [root];
+    const queue: TreeNode[] = [root];
 
     while (queue.length > 0 && nodePointer < treeArr.length) {
-      const current: ITreeNode = queue.shift();
+      const current: TreeNode = queue.shift();
 
       if (nodePointer < treeArr.length) {
         const nodeValue: Alphanumeric = treeArr[nodePointer++];
 
         if (nodeValue !== null) {
-          const node: ITreeNode = new TreeNode(nodeValue);
+          const node: TreeNode = new TreeNode(nodeValue);
           current.left = node;
           queue.push(node);
         }
@@ -57,7 +57,7 @@ const BinaryTreeRig: IBinaryTreeRigConstructor = class BinaryTreeRig
         const nodeValue: Alphanumeric = treeArr[nodePointer++];
 
         if (nodeValue !== null) {
-          const node: ITreeNode = new TreeNode(nodeValue);
+          const node: TreeNode = new TreeNode(nodeValue);
           current.right = node;
           queue.push(node);
         }

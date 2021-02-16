@@ -1,5 +1,5 @@
 import { Alphanumeric } from '../Types';
-import { ITreeNode } from './Classes/TreeNode';
+import ITreeNode from './Classes/TreeNode';
 
 export function preOrderIterativeTraverse(root: ITreeNode): Alphanumeric[] {
   const collection: Alphanumeric[] = [];
