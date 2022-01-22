@@ -1,18 +1,7 @@
 import TreeNode from './TreeNode';
 import { Alphanumeric, SerializedBiTree } from '../../Types';
 
-interface IBinaryTreeRig {
-  treeContent: TreeNode;
-  getAllNodesInPreOrder(): TreeNode[];
-}
-
-interface IBinaryTreeRigConstructor {
-  new (treeContent: TreeNode): IBinaryTreeRig;
-  deserializeTree(treeArr: SerializedBiTree): TreeNode;
-}
-
-const BinaryTreeRig: IBinaryTreeRigConstructor = class BinaryTreeRig
-  implements IBinaryTreeRig {
+export default class BinaryTreeRig {
   constructor(public treeContent: TreeNode) {}
 
   getAllNodesInPreOrder() {
@@ -67,5 +56,3 @@ const BinaryTreeRig: IBinaryTreeRigConstructor = class BinaryTreeRig
     return root;
   }
 };
-
-export default BinaryTreeRig;
