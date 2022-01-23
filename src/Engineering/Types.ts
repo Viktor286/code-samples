@@ -1,3 +1,3 @@
 export type Alphanumeric = number | string;
 
-export type SerializedBiTree = Array<number | null>;
+export type SerializedBiTree = Array<Alphanumeric | null>;
