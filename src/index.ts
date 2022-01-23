@@ -1,7 +1,7 @@
 import {
   preOrderIterativeTraverse,
   preOrderRecursiveTraverse,
-} from './Engineering/BinaryTrees/01_preOrder';
+} from './Engineering/BinaryTrees/01_PreOrder_Iterative';
 import BinaryTreeRig from './Engineering/BinaryTrees/Classes/BinaryTreeRig';
 import { SerializedTreeList } from './Engineering/BinaryTrees/DataFixtures/SerializedTreeList';
 

@@ -1,7 +1,5 @@
-import {
-  preOrderIterativeTraverse,
-  preOrderRecursiveTraverse
-} from "./01_preOrder";
+import preOrderIterativeTraverse from "./01_PreOrder_Iterative";
+import preOrderRecursiveTraverse from "./01_PreOrder_Recursive";
 import BinaryTreeRig from "./Classes/BinaryTreeRig";
 import { SerializedTreeList } from "./DataFixtures/SerializedTreeList";
 import BDAGECHFI from "./DataFixtures/BDAGECHFI";
