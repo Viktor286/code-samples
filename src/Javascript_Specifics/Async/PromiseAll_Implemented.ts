@@ -3,16 +3,16 @@ export function promiseAll(promisesArr: Promise<any>[]): Promise<any[]> {
     let requestCnt: number = promisesArr.length;
     const outputCollection: string[] = [];
 
-    promisesArr.forEach(p => {
+    promisesArr.forEach((p) => {
       p.then(
-        res => {
+        (res) => {
           outputCollection.push(res);
           --requestCnt;
           if (requestCnt <= 0) {
             resolve(outputCollection);
           }
         },
-        err => {
+        (err) => {
           reject(err);
         },
       );

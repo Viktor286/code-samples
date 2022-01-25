@@ -6,4 +6,4 @@ export default class TreeNode {
     public left: TreeNode | null = null,
     public right: TreeNode | null = null,
   ) {}
-};
+}

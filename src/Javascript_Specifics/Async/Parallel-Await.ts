@@ -8,7 +8,7 @@ type fetchedSeries = {
 };
 
 const asyncRequest = (request: string): Promise<string> =>
-  new Promise(resolve => {
+  new Promise((resolve) => {
     setTimeout(() => resolve('Successful response for ' + request), 1000);
   });
 
