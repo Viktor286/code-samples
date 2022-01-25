@@ -56,13 +56,13 @@ class OmniArray_draft {
     return JSON.stringify(this.toObject());
   }
 
-  hasKey() {}
-
-  hasValue() {} // TODO: current version doesn't allow similar values
-
-  remove() {}
-
-  clear() {}
+  // hasKey() {}
+  //
+  // hasValue() {} // TODO: current version doesn't allow similar values
+  //
+  // remove() {}
+  //
+  // clear() {}
 }
 
 const omni = new OmniArray_draft();

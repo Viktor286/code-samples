@@ -1,7 +1,7 @@
 import { Alphanumeric } from '../Types';
 import ITreeNode from './Classes/TreeNode';
 
-const postOrderTraverseAndCollect: Function = (root: ITreeNode, collection: Alphanumeric[]): void => {
+const postOrderTraverseAndCollect = (root: ITreeNode, collection: Alphanumeric[]): void => {
   if (root.left) postOrderTraverseAndCollect(root.left, collection);
   if (root.right) postOrderTraverseAndCollect(root.right, collection);
   collection.push(root.value);
