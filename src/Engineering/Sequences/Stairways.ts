@@ -6,10 +6,7 @@
 export function numOfTwoWaysDeclarativeRecursion(n: number): number {
   // base case for situations on last stairs
   if (n < 2) return 1;
-  return (
-    numOfTwoWaysDeclarativeRecursion(n - 1) +
-    numOfTwoWaysDeclarativeRecursion(n - 2)
-  );
+  return numOfTwoWaysDeclarativeRecursion(n - 1) + numOfTwoWaysDeclarativeRecursion(n - 2);
 }
 
 export function numOfTwoWaysIterativeMemo(n: number): number {
@@ -28,7 +25,7 @@ export function numOfTwoWaysIterativeMemo(n: number): number {
 export function numOfWaysRecursion(n: number, allowedSteps: number[]): number {
   if (n === 0) return 1;
   let intermediateSum = 0;
-  allowedSteps.forEach(stepLen => {
+  allowedSteps.forEach((stepLen) => {
     if (n - stepLen >= 0) {
       intermediateSum += numOfWaysRecursion(n - stepLen, allowedSteps);
     }
@@ -40,7 +37,7 @@ export function numOfWaysMemo(n: number, allowedSteps: number[]) {
   const sols = [1];
   for (let step = 1; step <= n; step++) {
     let intermediateSum = 0;
-    allowedSteps.forEach(stepLen => {
+    allowedSteps.forEach((stepLen) => {
       if (step - stepLen >= 0) intermediateSum += sols[step - stepLen];
     });
     sols[step] = intermediateSum;

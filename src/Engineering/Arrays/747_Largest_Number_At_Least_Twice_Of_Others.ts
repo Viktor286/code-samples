@@ -9,7 +9,7 @@ export function dominantIndex(nums: number[]) {
   let maxValue = -Infinity;
   let secondMax = -Infinity;
 
-  for (let i=0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     if (nums[i] > maxValue) {
       secondMax = maxValue;
       maxValue = nums[i];
