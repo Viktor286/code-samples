@@ -13,29 +13,6 @@ interface Node {
   children: Node[]
 }
 
-// Iterative approach
-function preorder(root: Node): number[] {
-  if (!root) {
-    return [];
-  }
-
-  const stack = [root];
-  const collection = []
-
-  while(stack.length > 0) {
-    const node = stack.pop();
-    collection.push(node.val);
-
-    let i=node.children.length-1;
-    while(i >= 0) {
-      stack.push(node.children[i]);
-      i--;
-    }
-  }
-
-  return collection;
-}
-
 // Recursive approach
 const collection: number[] = [];
 function preorderRecursive(node: Node) {
@@ -46,7 +23,7 @@ function preorderRecursive(node: Node) {
   collection.push(node.val);
 
   for(let i=0; i < node.children.length; i++) {
-    preorder(node.children[i]);
+    preorderRecursive(node.children[i]);
   }
 
   return collection;
