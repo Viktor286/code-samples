@@ -4,14 +4,14 @@
 // Output: [5,6]
 
 function findDisappearedNumbers(nums: number[]) {
-  for(let i=0; i<nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     const indexTarget = Math.abs(nums[i]) - 1;
     nums[indexTarget] = nums[indexTarget] < 0 ? nums[indexTarget] : nums[indexTarget] * -1;
   }
 
   const result: number[] = [];
-  for(let i=0; i<nums.length; i++) {
-    if (nums[i] >= 0) result.push(i+1);
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] >= 0) result.push(i + 1);
   }
 
   return result;

@@ -1,13 +1,7 @@
 // 589. N-ary Tree Preorder Traversal
 // https://leetcode.com/problems/n-ary-tree-preorder-traversal/
 // Given the root of an n-ary tree, return the preorder traversal of its nodes' values.
-/**
- * // Definition for a Node.
- * function Node(val, children) {
- *    this.val = val;
- *    this.children = children;
- * };
- */
+
 interface Node {
   val: number,
   children: Node[]
@@ -20,14 +14,14 @@ function preorderIterative(root: Node): number[] {
   }
 
   const stack = [root];
-  const collection = []
+  const collection = [];
 
-  while(stack.length > 0) {
+  while (stack.length > 0) {
     const node = stack.pop();
     collection.push(node.val);
 
-    let i=node.children.length-1;
-    while(i >= 0) {
+    let i = node.children.length - 1;
+    while (i >= 0) {
       stack.push(node.children[i]);
       i--;
     }

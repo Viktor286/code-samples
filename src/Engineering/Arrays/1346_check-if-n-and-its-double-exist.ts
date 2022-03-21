@@ -4,7 +4,7 @@
 function checkIfExist(arr: number[]): boolean {
   const seen = new Map();
 
-  for (let i=0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (seen.has(2 * arr[i]) || (arr[i] % 2 === 0 && seen.has(arr[i] / 2))) {
       return true;
     }

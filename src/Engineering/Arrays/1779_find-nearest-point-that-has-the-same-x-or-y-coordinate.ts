@@ -7,7 +7,7 @@
 function nearestValidPoint(x: number, y: number, points: Array<number[]>) {
   let smallestIndex = [-1, Infinity]; // [index, taxicab distance]
 
-  for(let i=0; i < points.length; i++) {
+  for (let i = 0; i < points.length; i++) {
     if (x === points[i][0] || y === points[i][1]) {
       const distance = Math.abs(x - points[i][0]) + Math.abs(y - points[i][1]);
       if (distance === 0) {

@@ -5,12 +5,12 @@
 // 0 if x is equal to 0.
 // You are given an integer array nums. Let product be the product of all values in the array nums.
 
-const arraySign = function(nums: number[]):number {
+function arraySign(nums: number[]): number {
   // use stack or variable to trace sign
   // check for at least one zero
   let isNegative = false;
 
-  for(let i=0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 0) {
       return 0;
     }
@@ -21,4 +21,4 @@ const arraySign = function(nums: number[]):number {
   }
 
   return isNegative ? -1 : 1;
-};
+}
