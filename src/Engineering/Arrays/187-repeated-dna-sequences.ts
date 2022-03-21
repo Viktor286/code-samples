@@ -8,8 +8,8 @@
 function findRepeatedDnaSequences(s: string) {
   const seen = new Map();
 
-  for(let i=0, j = 10; j < s.length+1; i++, j++) {
-    const current = s.slice(i,j);
+  for (let i = 0, j = 10; j < s.length + 1; i++, j++) {
+    const current = s.slice(i, j);
     seen.set(current, seen.has(current) ? seen.get(current) + 1 : 1);
   }
 

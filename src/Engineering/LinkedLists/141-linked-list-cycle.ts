@@ -16,7 +16,7 @@ function hasCycle(head: ListNode) {
   let walker = head;
   let runner = head;
 
-  while(runner.next !== null && runner.next.next !== null) {
+  while (runner.next !== null && runner.next.next !== null) {
     walker = walker.next;
     runner = runner.next.next;
 

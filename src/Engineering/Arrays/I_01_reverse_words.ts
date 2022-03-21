@@ -22,8 +22,8 @@ function reverseWords(charsArray: string[]) {
   let reversedArray = reverseChars(0, charsArray.length - 1, charsArray);
 
   let wordStart = 0;
-  for (let i=0; i <= reversedArray.length; i++) {
-    if (reversedArray[i] === ' ' || i >= reversedArray.length) {
+  for (let i = 0; i <= reversedArray.length; i++) {
+    if (reversedArray[i] === " " || i >= reversedArray.length) {
       reversedArray = reverseChars(wordStart, i - 1, reversedArray);
       wordStart = i + 1;
     }

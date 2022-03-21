@@ -13,16 +13,16 @@ function canMakeArithmeticProgression(arr: number[]) {
   let min = Infinity;
   const seen = new Map();
 
-  for (let i=0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (max < arr[i]) max = arr[i];
     if (min > arr[i]) min = arr[i];
-    seen.set(arr[i], true)
+    seen.set(arr[i], true);
   }
 
-  const step = (max - min) / (arr.length-1);
+  const step = (max - min) / (arr.length - 1);
   let n = min;
-  for(let i=0; i < arr.length-1; i++){
-    if(!seen.has(n + step)) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (!seen.has(n + step)) {
       return false;
     }
     n += step;
@@ -32,11 +32,11 @@ function canMakeArithmeticProgression(arr: number[]) {
 }
 
 function canMakeArithmeticProgressionTwo(arr: number[]) {
-    const sorted = arr.sort((a,b) => a-b);
-    for (let i=0; i < arr.length - 2; i++) {
-        if (arr[i+1] - arr[i] != arr[i+2] - arr[i+1]) {
-            return false;
-        }
+  const sorted = arr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length - 2; i++) {
+    if (arr[i + 1] - arr[i] != arr[i + 2] - arr[i + 1]) {
+      return false;
     }
-    return true;
+  }
+  return true;
 }

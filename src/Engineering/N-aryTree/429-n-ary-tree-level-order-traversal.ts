@@ -15,11 +15,11 @@ function levelOrder(root: Node) {
   const collection: number[][] = [];
   const queue: Node[] = [root];
 
-  while(queue.length > 0) {
+  while (queue.length > 0) {
     const level: number[] = [];
     let levelCount = queue.length;
 
-    while(levelCount > 0) {
+    while (levelCount > 0) {
       const current = queue.shift();
       current.children.forEach(node => queue.push(node));
       // queue = [...queue, ...current.children];
@@ -31,7 +31,7 @@ function levelOrder(root: Node) {
       levelCount--;
     }
 
-    collection.push(level)
+    collection.push(level);
   }
 
   return collection;

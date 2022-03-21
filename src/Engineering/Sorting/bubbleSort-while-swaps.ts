@@ -1,5 +1,6 @@
 // Wikipedia: https://en.wikipedia.org/wiki/Bubble_sort
 // Animated Visual: https://www.toptal.com/developers/sorting-algorithms/bubble-sort
+
 function bubbleSortWhileSwaps(arr: number[]) {
   let swapped = true;
   let rightBound = arr.length - 1;

@@ -11,8 +11,8 @@ function heightChecker(heights: number[]) {
   let wrong = 0;
   let correctIndex = 0;
 
-  for(let i=0; i < heights.length; i++) {
-    while(!hCount[correctIndex]) {
+  for (let i = 0; i < heights.length; i++) {
+    while (!hCount[correctIndex]) {
       correctIndex++;
     }
 

@@ -8,7 +8,7 @@ function thirdMax(nums: number[]) {
   let secondMax = -Infinity;
   let thirdMax = -Infinity;
 
-  for(let i=0; i<nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     const current = nums[i];
 
     if (
