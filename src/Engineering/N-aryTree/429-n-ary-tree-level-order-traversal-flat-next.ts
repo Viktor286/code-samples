@@ -13,7 +13,7 @@ function levelOrderFlatNextLevel(root: Node) {
   // keep current level as queue
   let nextLevel = root ? [root] : [];
   // while something in the level...
-  while(nextLevel.length > 0) {
+  while (nextLevel.length > 0) {
     // we can work with entire level in linear fashion
     collection.push(nextLevel.map(node => node.val));
     // as a last step aggregate the next level via left-to-right merge of all children.
