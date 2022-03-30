@@ -19,19 +19,21 @@ function levelOrderFlatLoops(root: Node) {
     const currentLevelValues = [];
 
     // we can work with entire level in linear fashion
+    // taking nodes in left-to-right order (similar to left-headed queue)
     for(let i = 0; i < level.length; i++) {
       const currentNode = level[i];
       currentLevelValues.push(currentNode.val);
 
       // aggregate the next level via left-to-right merge of all children.
-      // the order matters: for queue (left-in/right-out), for children(left-to-right)
+      // the order matters: here the children should be placed
+      // to the level in left-to-right order
       for(let j = 0; j < currentNode.children.length; j++) {
         nextLevel.push(currentNode.children[j]);
       }
     }
 
     collection.push(currentLevelValues);
-    level = nextLevel;
+    level = nextLevel; // override queue
   }
 
   return collection;

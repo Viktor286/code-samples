@@ -18,7 +18,7 @@ function levelOrderFlatNextLevel(root: Node) {
     collection.push(nextLevel.map(node => node.val));
     // as a last step aggregate the next level via left-to-right merge of all children.
     // The left-to-right order of children's nodes matches right-in/left-out queue order
-    // which is similar to shift-out/pop-in queue structure
+    // which is similar to shift()-out/pop()-in queue structure
     nextLevel = nextLevel.reduce((a, node) => [...a, ...node.children], []);
   }
 

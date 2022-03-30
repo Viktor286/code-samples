@@ -13,13 +13,16 @@ function levelOrderFlat(root: Node) {
   const queue = root ? [root] : [];
 
   while (queue.length > 0) {
-    // on each new phase the previous residue of the queue
+    // on each new level the previous residue of the queue
     // becomes current level
     const level = [...queue];
     // here we can work with entire level in linear fashion
     collection.push(level.map(node => node.val));
     // the next level will be left-to-right aggregation of all children nodes
-    // pushed in the right-in/left-out queue (right-to-left)
+    // pushed in the right-in/left-out queue (left-headed queue).
+    // We don't do anything with nodes in this loop rather than
+    // remove node from queue and add its corresponding children into
+    // the queue in the "left-to-right" order.
     level.forEach(() => queue.push(...queue.shift().children));
   }
 
