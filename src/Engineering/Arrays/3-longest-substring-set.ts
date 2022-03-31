@@ -9,6 +9,9 @@ function lengthOfLongestSubstringSet(s: string) {
 
   for (let r = 0; r < s.length; r++) {
     while (seen.has(s[r])) {
+      // we rely on the fact that js set keep order of addition
+      // so we use it like left-headed queue here
+      // with ability to constant lookup time
       seen.delete(s[l]);
       l++;
     }

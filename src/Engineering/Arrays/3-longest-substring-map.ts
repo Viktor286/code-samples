@@ -9,18 +9,17 @@ function lengthOfLongestSubstring(s: string) {
 
   const seen = new Map();
   let maxLen = 0;
-  let start = 0; // alt start = -1;
+  let startSequenceIndex = 0;
 
-  for (let i = 0; i < s.length; i++) {
-    if (seen.has(s[i]) && start < seen.get(s[i]) + 1) {
-      start = seen.get(s[i]) + 1;
-      // + 1 is post duplicate char index
-    }
+  for (let i=0; i < s.length; i++) {
+    const seenCharIndex = seen.get(s[i]);
+    if (startSequenceIndex <= seenCharIndex) startSequenceIndex = seenCharIndex + 1;
+    // +1 is next char after duplicate
 
     seen.set(s[i], i);
 
-    if (maxLen < i - start + 1) maxLen = i - start + 1;
-    // + 1 is index shift
+    if (maxLen < i - startSequenceIndex + 1) maxLen = i - startSequenceIndex + 1;
+    // +1 is inclusion of the first element after subtraction
   }
 
   return maxLen;
