@@ -9,7 +9,7 @@ function lengthOfLongestSubstring(s: string) {
 
   const seen = new Map();
   let maxLen = 0;
-  let startSequenceIndex = 0; // alt startSequenceIndex = -1;
+  let startSequenceIndex = 0;
 
   for (let i=0; i < s.length; i++) {
     const seenCharIndex = seen.get(s[i]);
