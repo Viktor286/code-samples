@@ -1,15 +1,22 @@
-// Insertion-sort style for ordered array's new number insertion
-// time complexity O(n)
+// Insertion-sort style for asc ordered array's new number insertion.
+// could be used as a base for priority queue
+// time complexity O(n) -- could be improved with binary search
 
-function insertInSortedArr(arr: number[], int: number) {
-  let insertion = int;
-  for (let i = arr.length-1; i >= 0; i--) {
-    if (arr[i] < insertion) {
-      const temp = arr[i];
-      arr[i] = insertion;
-      insertion = temp;
+function insertInAscSortedArr(arr: number[], insertNum: number) {
+  if (!Array.isArray(arr) || typeof insertNum !== "number") {
+    return arr;
+  }
+  let inserted = false;
+  for (let d = arr.length - 1; d >= 0; d--) {
+    if (arr[d] < insertNum) {
+      arr.splice(d + 1, 0, insertNum);
+      inserted = true;
+      break;
     }
   }
 
+  if (!inserted) arr.unshift(insertNum);
+
   return arr;
 }
+
