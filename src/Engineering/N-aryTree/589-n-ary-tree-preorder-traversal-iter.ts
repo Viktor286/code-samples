@@ -3,8 +3,8 @@
 // Given the root of an n-ary tree, return the preorder traversal of its nodes' values.
 
 interface Node {
-  val: number,
-  children: Node[]
+  val: number;
+  children: Node[];
 }
 
 // Iterative approach

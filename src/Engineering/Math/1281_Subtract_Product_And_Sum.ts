@@ -2,7 +2,7 @@
 // https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/
 // Given an integer number n, return the difference between the product of its digits and the sum of its digits.
 
-const subtractProductAndSum = function(n: number): number {
+const subtractProductAndSum = function (n: number): number {
   let prod = 1;
   let sum = 0;
 

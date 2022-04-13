@@ -6,7 +6,7 @@
 
 function heightChecker(heights: number[]) {
   const hCount = new Array(101);
-  heights.forEach(h => hCount[h] > 0 ? hCount[h]++ : hCount[h] = 1);
+  heights.forEach((h) => (hCount[h] > 0 ? hCount[h]++ : (hCount[h] = 1)));
 
   let wrong = 0;
   let correctIndex = 0;

@@ -3,7 +3,7 @@
 // time complexity O(n) -- could be improved with binary search
 
 function insertInAscSortedArr(arr: number[], insertNum: number) {
-  if (!Array.isArray(arr) || typeof insertNum !== "number") {
+  if (!Array.isArray(arr) || typeof insertNum !== 'number') {
     return arr;
   }
   let inserted = false;
@@ -19,4 +19,3 @@ function insertInAscSortedArr(arr: number[], insertNum: number) {
 
   return arr;
 }
-

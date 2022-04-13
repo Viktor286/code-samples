@@ -5,16 +5,16 @@
 // Binary tree node: {left, val, right}
 
 interface IBinaryNode {
-  left: IBinaryNode | null,
-  right: IBinaryNode | null,
-  val: number
+  left: IBinaryNode | null;
+  right: IBinaryNode | null;
+  val: number;
 }
 
 function inorderTraversalVisited(root: IBinaryNode) {
   const collection: number[] = [];
   const stack: [IBinaryNode, boolean][] = [[root, false]];
 
-  while(stack.length > 0) {
+  while (stack.length > 0) {
     const [node, visited]: [IBinaryNode, boolean] = stack.pop();
 
     if (node) {

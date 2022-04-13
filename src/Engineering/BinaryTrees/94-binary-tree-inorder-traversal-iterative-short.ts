@@ -5,13 +5,13 @@
 // Binary tree node: {left, val, right}
 
 interface IBinaryNode {
-  left: IBinaryNode | null,
-  right: IBinaryNode | null,
-  val: number
+  left: IBinaryNode | null;
+  right: IBinaryNode | null;
+  val: number;
 }
 
 // Iterative short
-function inorderTraversalShort (node: IBinaryNode) {
+function inorderTraversalShort(node: IBinaryNode) {
   const stack = [];
   const collection = [];
 

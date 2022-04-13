@@ -3,10 +3,10 @@
 // Given the root of a binary tree, return its maximum depth.
 
 interface IBinaryNode {
-  left: IBinaryNode | null,
-  right: IBinaryNode | null,
-  val: number,
-  d: number
+  left: IBinaryNode | null;
+  right: IBinaryNode | null;
+  val: number;
+  d: number;
 }
 
 function maxDepthRecursive(node: IBinaryNode): number {

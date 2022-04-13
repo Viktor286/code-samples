@@ -16,8 +16,8 @@ function maxProfitCadanes(prices: number[]) {
   let current = 0;
   let prev = 0;
   let max = 0;
-  for(let i = 1; i < prices.length; i++) {
-    current = Math.max(prev + (prices[i] - prices[i-1]), 0);
+  for (let i = 1; i < prices.length; i++) {
+    current = Math.max(prev + (prices[i] - prices[i - 1]), 0);
     max = Math.max(max, current);
     prev = current;
   }

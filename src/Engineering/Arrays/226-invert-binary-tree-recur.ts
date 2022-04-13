@@ -4,9 +4,9 @@
 // and return its root.
 
 interface BiNode {
-  left: BiNode,
-  right: BiNode,
-  val: number
+  left: BiNode;
+  right: BiNode;
+  val: number;
 }
 
 function invertTreeRecursive(root: BiNode) {

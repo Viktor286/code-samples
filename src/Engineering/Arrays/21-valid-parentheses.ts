@@ -11,7 +11,11 @@
 // Output: false
 
 function isValid(s: string) {
-  const parentheses = new Map([  [ ']', '[' ], [ "}", "{" ], [ ")", "(" ] ]);
+  const parentheses = new Map([
+    [']', '['],
+    ['}', '{'],
+    [')', '('],
+  ]);
   const stack = [];
 
   for (let i = 0; i < s.length; i++) {

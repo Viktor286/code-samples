@@ -1,8 +1,8 @@
-function mergeSort(A: number[], l: number , r: number) {
+function mergeSort(A: number[], l: number, r: number) {
   if (l === r) return;
   const mid = (l + r) >> 1; // ((r - l) >> 1) + l
   mergeSort(A, l, mid);
-  mergeSort(A, mid + 1,r);
+  mergeSort(A, mid + 1, r);
   merge(A, l, mid, r);
 }
 
@@ -24,7 +24,7 @@ function merge(A: number[], l: number, mid: number, r: number) {
   let j = 0;
   let k = l;
 
-  while(i < n1 && j < n2) {
+  while (i < n1 && j < n2) {
     if (L[i] < R[j]) {
       A[k] = L[i];
       i++;
@@ -35,13 +35,13 @@ function merge(A: number[], l: number, mid: number, r: number) {
     k++;
   }
 
-  while(i < n1) {
+  while (i < n1) {
     A[k] = L[i];
     k++;
     i++;
   }
 
-  while(j < n2) {
+  while (j < n2) {
     A[k] = R[j];
     k++;
     j++;

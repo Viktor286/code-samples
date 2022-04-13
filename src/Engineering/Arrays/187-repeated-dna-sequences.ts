@@ -14,7 +14,7 @@ function findRepeatedDnaSequences(s: string) {
   }
 
   const resultArray: string[] = [];
-  seen.forEach((value, key) => value > 1 ? resultArray.push(key) : null);
+  seen.forEach((value, key) => (value > 1 ? resultArray.push(key) : null));
 
   return resultArray;
 }

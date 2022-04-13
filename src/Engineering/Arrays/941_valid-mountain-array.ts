@@ -6,7 +6,7 @@
 // arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
 // arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
 
-const validMountainArray = function(arr: number[]) {
+const validMountainArray = function (arr: number[]) {
   let l = 0;
   let r = arr.length - 1;
 

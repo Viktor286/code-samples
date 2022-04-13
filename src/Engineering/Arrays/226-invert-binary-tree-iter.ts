@@ -4,9 +4,9 @@
 // and return its root.
 
 interface BiNode {
-  left: BiNode,
-  right: BiNode,
-  val: number
+  left: BiNode;
+  right: BiNode;
+  val: number;
 }
 
 function invertTree(root: BiNode) {
@@ -15,7 +15,7 @@ function invertTree(root: BiNode) {
   }
 
   const queue = [root];
-  while(queue.length > 0) {
+  while (queue.length > 0) {
     const current = queue.shift();
 
     const left = current.left;

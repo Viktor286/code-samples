@@ -4,14 +4,15 @@
 // reverse the list, and return the reversed list.
 
 interface ListNode {
-  val: number,
-  next: ListNode | null
+  val: number;
+  next: ListNode | null;
 }
 
 function reverseList(head: ListNode) {
   let tempHead = null;
 
-  while (head) { // 1 -> 2 -> 3
+  while (head) {
+    // 1 -> 2 -> 3
     const next = head.next; // cache the next pointer (null for last)
     head.next = tempHead; // set curr to prev node (null for first step)
 

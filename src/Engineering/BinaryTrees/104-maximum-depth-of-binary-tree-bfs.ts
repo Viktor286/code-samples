@@ -3,10 +3,10 @@
 // Given the root of a binary tree, return its maximum depth.
 
 interface IBinaryNode {
-  left: IBinaryNode | null,
-  right: IBinaryNode | null,
-  val: number,
-  d: number
+  left: IBinaryNode | null;
+  right: IBinaryNode | null;
+  val: number;
+  d: number;
 }
 
 function maxDepthBFS(root: IBinaryNode) {
@@ -22,7 +22,7 @@ function maxDepthBFS(root: IBinaryNode) {
     let levelAmount = queue.length;
     levelCnt++;
 
-    while(levelAmount > 0) {
+    while (levelAmount > 0) {
       const node = queue.pop();
       if (node.left) queue.unshift(node.left);
       if (node.right) queue.unshift(node.right);

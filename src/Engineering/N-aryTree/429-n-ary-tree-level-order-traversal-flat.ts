@@ -4,8 +4,8 @@
 // of its nodes' values.
 
 interface Node {
-  val: number,
-  children: Node[]
+  val: number;
+  children: Node[];
 }
 
 function levelOrderFlat(root: Node) {
@@ -17,7 +17,7 @@ function levelOrderFlat(root: Node) {
     // becomes current level
     const level = [...queue];
     // here we can work with entire level in linear fashion
-    collection.push(level.map(node => node.val));
+    collection.push(level.map((node) => node.val));
     // the next level will be left-to-right aggregation of all children nodes
     // pushed in the right-in/left-out queue (left-headed queue).
     // We don't do anything with nodes in this loop rather than

@@ -11,7 +11,7 @@
 // [1]6, [1,6]4, [1,6,4]5, [1,6,4,5]18, [1,6,4,5,18]17
 // then we can recalc max between the last number at the window edge and new number.
 
-const replaceElements = function(arr: number[]) {
+const replaceElements = function (arr: number[]) {
   let max = -1;
   for (let i = arr.length - 1; i >= 0; i--) {
     const el = arr[i];

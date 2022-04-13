@@ -5,9 +5,9 @@
 // Binary tree node: {left, val, right}
 
 interface IBinaryNode {
-  left: IBinaryNode | null,
-  right: IBinaryNode | null,
-  val: number
+  left: IBinaryNode | null;
+  right: IBinaryNode | null;
+  val: number;
 }
 
 // Iterative
@@ -20,8 +20,8 @@ function inorderTraversalIterative(root: IBinaryNode) {
   const stack = [];
   let focus = root;
 
-  while(focus != null || stack.length > 0) {
-    while(focus != null) {
+  while (focus != null || stack.length > 0) {
+    while (focus != null) {
       stack.push(focus);
       focus = focus.left;
     }

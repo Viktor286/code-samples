@@ -5,8 +5,8 @@
 // Node.val == val, and return the new head.
 
 interface ListNode {
-  val: number,
-  next: ListNode | null
+  val: number;
+  next: ListNode | null;
 }
 
 function removeElementsIterPrev(head: ListNode, val: number) {
@@ -19,7 +19,7 @@ function removeElementsIterPrev(head: ListNode, val: number) {
   let current = head;
   let prev = dummy;
 
-  while(current !== null) {
+  while (current !== null) {
     if (current.val === val) {
       prev.next = current.next;
     } else {

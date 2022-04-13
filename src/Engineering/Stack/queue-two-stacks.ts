@@ -1,8 +1,8 @@
 interface IStack {
-  push(element: any): void,
-  pop(): any,
-  peek(): any,
-  length(): number,
+  push(element: any): void;
+  pop(): any;
+  peek(): any;
+  length(): number;
 }
 
 class QueueTwoStacks {
@@ -20,7 +20,6 @@ class QueueTwoStacks {
 
   dequeue() {
     if (this.outStack.length() === 0) {
-
       // Move items from inStack to outStack, reversing order
       while (this.inStack.length() > 0) {
         const newestInStackItem = this.inStack.pop();

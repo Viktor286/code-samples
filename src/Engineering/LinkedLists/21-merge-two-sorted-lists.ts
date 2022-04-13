@@ -4,8 +4,8 @@
 // Return the head of the merged linked list.
 
 interface LinkedListNode {
-  val: number,
-  next: LinkedListNode | null
+  val: number;
+  next: LinkedListNode | null;
 }
 
 function mergeTwoLists(l1: LinkedListNode, l2: LinkedListNode) {

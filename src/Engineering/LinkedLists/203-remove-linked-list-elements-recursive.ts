@@ -5,8 +5,8 @@
 // Node.val == val, and return the new head.
 
 interface ListNode {
-  val: number,
-  next: ListNode | null
+  val: number;
+  next: ListNode | null;
 }
 
 function removeElementsRecursive(head: ListNode, val: number) {

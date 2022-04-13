@@ -11,11 +11,7 @@ function thirdMax(nums: number[]) {
   for (let i = 0; i < nums.length; i++) {
     const current = nums[i];
 
-    if (
-      current === firstMax ||
-      current === secondMax ||
-      current === thirdMax
-    ) {
+    if (current === firstMax || current === secondMax || current === thirdMax) {
       continue;
     }
 
@@ -31,8 +27,7 @@ function thirdMax(nums: number[]) {
     }
   }
 
-  if (thirdMax !== -Infinity)
-    return thirdMax;
+  if (thirdMax !== -Infinity) return thirdMax;
 
   return firstMax;
 }

@@ -1,7 +1,10 @@
 export type CounterFactory = (count?: number) => CounterFunction;
 export type CounterFunction = () => number;
 
-export const Counter: CounterFactory = (count = 0) => (): number => ++count;
+export const Counter: CounterFactory =
+  (count = 0) =>
+  (): number =>
+    ++count;
 
 // // Produced function can store variables in lexical environment
 // const myCounter: CounterFunction = Counter();

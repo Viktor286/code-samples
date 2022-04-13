@@ -10,11 +10,11 @@ function twoSum(nums: number[], target: number) {
   const map = new Map();
   let result: number[] = [];
 
-  for(let i=0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     if (map.has(target - nums[i])) {
-      result = [i, map.get(target - nums[i])]
+      result = [i, map.get(target - nums[i])];
     } else {
-      map.set(nums[i], i)
+      map.set(nums[i], i);
     }
   }
 

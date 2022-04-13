@@ -11,7 +11,7 @@ function lengthOfLongestSubstring(s: string) {
   let maxLen = 0;
   let startSequenceIndex = 0;
 
-  for (let i=0; i < s.length; i++) {
+  for (let i = 0; i < s.length; i++) {
     const seenCharIndex = seen.get(s[i]);
     if (startSequenceIndex <= seenCharIndex) startSequenceIndex = seenCharIndex + 1;
     // +1 is next char after duplicate

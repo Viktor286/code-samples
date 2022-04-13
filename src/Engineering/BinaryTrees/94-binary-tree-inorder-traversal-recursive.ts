@@ -5,9 +5,9 @@
 // Binary tree node: {left, val, right}
 
 interface IBinaryNode {
-  left: IBinaryNode | null,
-  right: IBinaryNode | null,
-  val: number
+  left: IBinaryNode | null;
+  right: IBinaryNode | null;
+  val: number;
 }
 
 // Recursive

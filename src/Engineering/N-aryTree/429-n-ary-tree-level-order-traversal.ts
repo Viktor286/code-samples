@@ -3,8 +3,8 @@
 // Given an n-ary tree, return the level order traversal of its nodes' values.
 
 interface Node {
-  val: number,
-  children: Node[]
+  val: number;
+  children: Node[];
 }
 
 function levelOrder(root: Node) {
@@ -21,7 +21,7 @@ function levelOrder(root: Node) {
 
     while (levelCount > 0) {
       const current = queue.shift();
-      current.children.forEach(node => queue.push(node));
+      current.children.forEach((node) => queue.push(node));
       // queue = [...queue, ...current.children];
       // const current = queue.pop();
       // current.children.forEach(node => queue.unshift(node));

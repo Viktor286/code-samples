@@ -4,8 +4,8 @@
 // determine if the linked list has a cycle in it.
 
 interface ListNode {
-  val: number,
-  next: ListNode | null
+  val: number;
+  next: ListNode | null;
 }
 
 function hasCycle(head: ListNode) {
