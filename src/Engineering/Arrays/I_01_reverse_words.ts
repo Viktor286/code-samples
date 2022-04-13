@@ -23,7 +23,7 @@ function reverseWords(charsArray: string[]) {
 
   let wordStart = 0;
   for (let i = 0; i <= reversedArray.length; i++) {
-    if (reversedArray[i] === " " || i >= reversedArray.length) {
+    if (reversedArray[i] === ' ' || i >= reversedArray.length) {
       reversedArray = reverseChars(wordStart, i - 1, reversedArray);
       wordStart = i + 1;
     }
