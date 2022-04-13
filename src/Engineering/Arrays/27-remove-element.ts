@@ -1,8 +1,5 @@
-/**
- * @param {number[]} nums
- * @param {number} val
- * @return {number}
- */
+// 27. Remove Element
+// https://leetcode.com/problems/remove-element/
 // remove all occurrences of val in nums in-place
 // Input: nums = [3,2,2,3], val = 3; Output: 2, nums = [2,2,_,_]
 // Input: nums = [0,1,2,2,3,0,4,2], val = 2;
