@@ -20,9 +20,9 @@ function levelOrder(root: IBinaryNode): number[][] {
 
   while (queue.length > 0) {
     const level = [...queue];
-    collection.push(level.map(e => e.val));
+    collection.push(level.map((e) => e.val));
 
-    level.forEach(node => {
+    level.forEach((node) => {
       if (node.left) queue.push(node.left);
       if (node.right) queue.push(node.right);
     });
