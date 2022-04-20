@@ -8,50 +8,43 @@ interface IBinaryNode {
   val: number;
 }
 
-function BSTIterator(root: IBinaryNode) {
-  this.main = (function* bst(): Iterator<number> {
-    if (!root) {
-      return null;
-    }
+class BSTIterator {
+  main: Iterator<number>;
+  value: number;
+  done: boolean;
 
-    const stack = [];
-    let current = root;
-    while (stack.length > 0 || current) {
-      while (current) {
-        stack.push(current);
-        current = current.left;
+  constructor(root: IBinaryNode) {
+    this.main = (function* bst(): Iterator<number> {
+      if (!root) {
+        return null;
       }
 
-      const node = stack.pop();
-      yield node.val;
-      current = node.right;
-    }
+      const stack = [];
+      let current = root;
+      while (stack.length > 0 || current) {
+        while (current) {
+          stack.push(current);
+          current = current.left;
+        }
 
-    return null;
-  })();
+        const node = stack.pop();
+        yield node.val;
+        current = node.right;
+      }
 
-  ({ value: this.value, done: this.done } = this.main.next());
+      return null;
+    })();
+
+    ({ value: this.value, done: this.done } = this.main.next());
+  }
+
+  next() {
+    const current = this.value;
+    ({ value: this.value, done: this.done } = this.main.next());
+    return current;
+  }
+
+  hasNext() {
+    return !this.done;
+  }
 }
-
-/**
- * @return {number}
- */
-BSTIterator.prototype.next = function () {
-  const current = this.value;
-  ({ value: this.value, done: this.done } = this.main.next());
-  return current;
-};
-
-/**
- * @return {boolean}
- */
-BSTIterator.prototype.hasNext = function () {
-  return !this.done;
-};
-
-/**
- * Your BSTIterator object will be instantiated and called as such:
- * var obj = new BSTIterator(root)
- * var param_1 = obj.next()
- * var param_2 = obj.hasNext()
- */
