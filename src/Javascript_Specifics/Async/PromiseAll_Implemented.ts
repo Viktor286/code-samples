@@ -1,12 +1,12 @@
 export function promiseAll(promisesArr: Promise<any>[]): Promise<any[]> {
   return new Promise((resolve, reject) => {
     let requestCnt: number = promisesArr.length;
-    const outputCollection: string[] = [];
+    const outputCollection: any[] = new Array(requestCnt);
 
-    promisesArr.forEach((p) => {
+    promisesArr.forEach((p, i) => {
       p.then(
         (res) => {
-          outputCollection.push(res);
+          outputCollection[i] = res;
           --requestCnt;
           if (requestCnt <= 0) {
             resolve(outputCollection);

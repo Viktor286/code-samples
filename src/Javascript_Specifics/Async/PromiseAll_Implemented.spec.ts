@@ -9,9 +9,9 @@ const fetchBirds: StrResolver = (name) => new Promise((resolve) => setTimeout(()
 describe('promiseAll', () => {
   it('should return certain array', () => {
     promiseAll([fetchDogs('Spike'), fetchCats('Fluffy'), fetchBirds('Tweety')]).then((namesArr) => {
-      expect(namesArr).toContain('Spike');
-      expect(namesArr).toContain('Fluffy');
-      expect(namesArr).toContain('Tweety');
+      expect(namesArr[0]).toBe('Spike');
+      expect(namesArr[1]).toBe('Fluffy');
+      expect(namesArr[2]).toBe('Tweety');
     });
   });
 });
