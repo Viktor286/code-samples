@@ -11,30 +11,32 @@ function virtualize(element) {
 
   const children = [];
   for (let node of element.childNodes) {
-    if(node.nodeType === 3) {
+    if (node.nodeType === 3) {
       children.push(node.textContent);
     } else {
       children.push(virtualize(node));
     }
   }
-  props.children = children.length === 1 ? children[0]: children;
+  props.children = children.length === 1 ? children[0] : children;
 
   return {
     type: element.tagName.toLowerCase(),
     props,
-  }
+  };
 }
-
 
 /**
  * @param {object} valid object literal presentation
  * @return {HTMLElement}
  */
 function render(obj) {
-  if(typeof obj === 'string') {
+  if (typeof obj === 'string') {
     return document.createTextNode(obj);
   }
-  const { type, props: { children, ...attrs } } = obj;
+  const {
+    type,
+    props: { children, ...attrs },
+  } = obj;
   const node = document.createElement(type);
 
   for (let [attr, value] of Object.entries(attrs)) {

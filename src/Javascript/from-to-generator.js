@@ -20,9 +20,9 @@ let range = {
         } else {
           return { done: true };
         }
-      }
+      },
     };
-  }
+  },
 };
 
 // iteration over range returns numbers from range.from to range.to
@@ -32,11 +32,12 @@ let range2 = {
   from: 1,
   to: 5,
 
-  *[Symbol.iterator]() { // a shorthand for [Symbol.iterator]: function*()
-    for(let value = this.from; value <= this.to; value++) {
+  *[Symbol.iterator]() {
+    // a shorthand for [Symbol.iterator]: function*()
+    for (let value = this.from; value <= this.to; value++) {
       yield value;
     }
-  }
+  },
 };
 
-alert( [...range2] ); // 1,2,3,4,5
+alert([...range2]); // 1,2,3,4,5

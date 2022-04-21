@@ -9,11 +9,11 @@ function createU8BitIntVariable(varName = 'u8BitInt', number = 0) {
     },
     set(x) {
       U8BitDigitObject[0] = x;
-    }
-  })
+    },
+  });
 }
 
 // Usage example
 createU8BitIntVariable('one', 1);
 createU8BitIntVariable('two', 2);
-console.log("var one, var two, sum:", one, two, one + two);
+console.log('var one, var two, sum:', one, two, one + two);

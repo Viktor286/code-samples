@@ -7,24 +7,23 @@ function ListNode(val) {
   this.next = null;
 }
 
-var MyHashSet = function() {
+var MyHashSet = function () {
   // To make this as real as possible, we determine the size before hand
-  this.size = 1000
+  this.size = 1000;
   this.arr = new Array(this.size);
-
 };
 
 /**
  * @param {number} key
  * @return {void}
  */
-MyHashSet.prototype.hash = function(key) {
+MyHashSet.prototype.hash = function (key) {
   // to make sure everyone ends up in a bucket
 
   return key % this.size;
-}
+};
 
-MyHashSet.prototype.add = function(key) {
+MyHashSet.prototype.add = function (key) {
   const hash = this.hash(key);
 
   // First see if we've got this bucket at all created
@@ -53,7 +52,7 @@ MyHashSet.prototype.add = function(key) {
  * @param {number} key
  * @return {void}
  */
-MyHashSet.prototype.remove = function(key) {
+MyHashSet.prototype.remove = function (key) {
   const hash = this.hash(key);
 
   if (!this.arr[hash]) {
@@ -65,7 +64,6 @@ MyHashSet.prototype.remove = function(key) {
 
     // find the value
     while (node) {
-
       if (node.val === key) {
         // if it happened to be head the logic is different
         if (node === head) {
@@ -89,7 +87,7 @@ MyHashSet.prototype.remove = function(key) {
  * @param {number} key
  * @return {boolean}
  */
-MyHashSet.prototype.contains = function(key) {
+MyHashSet.prototype.contains = function (key) {
   const hash = this.hash(key);
 
   // contains is the easiest of the 3, just find bucket and follow ll

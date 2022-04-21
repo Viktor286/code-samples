@@ -2,7 +2,7 @@
  * @param {Function} fn
  */
 function promisify(fn) {
-  return function(...args) {
+  return function (...args) {
     return new Promise((resolve) => {
       function cb(result) {
         resolve(result);
@@ -13,9 +13,9 @@ function promisify(fn) {
   };
 }
 
-const exampleFn = function(a, b, cb) {
+const exampleFn = function (a, b, cb) {
   cb(a + b);
 };
 
 const promisified = promisify(exampleFn);
-promisified(5, 15).then(res => console.log(res)); //20
+promisified(5, 15).then((res) => console.log(res)); //20

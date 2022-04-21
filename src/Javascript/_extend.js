@@ -2,10 +2,10 @@ function ParentClass() {
   this.score = 0;
 }
 
-ParentClass.prototype.increment = function() {
+ParentClass.prototype.increment = function () {
   return ++this.score;
 };
-ParentClass.prototype.decrement = function() {
+ParentClass.prototype.decrement = function () {
   return --this.score;
 };
 
@@ -17,21 +17,21 @@ ParentClass.prototype.decrement = function() {
 function _extend(Child, Parent) {
   Child.prototype = Object.create(Parent.prototype);
   Child.prototype._super = Parent;
-  Object.defineProperty(Child.prototype, "constructor", {
+  Object.defineProperty(Child.prototype, 'constructor', {
     value: Child,
     enumerable: false,
-    writable: true
+    writable: true,
   });
   return Child;
 }
 
 const ChildClass = _extend(function ChildClass() {
   this._super();
-  this.name = "Eugene";
+  this.name = 'Eugene';
   this.age = 26;
 }, ParentClass);
 
-ChildClass.prototype.toString = function() {
+ChildClass.prototype.toString = function () {
   return `${this.name} ${this.age} ${this.score}`;
 };
 const ch = new ChildClass();

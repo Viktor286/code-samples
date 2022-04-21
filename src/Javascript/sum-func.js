@@ -7,7 +7,7 @@
  */
 function sum(num, currentSum = 0) {
   const newCurrentSum = num + currentSum;
-  const func = function(arg) {
+  const func = function (arg) {
     return sum(arg, newCurrentSum);
   };
   func.valueOf = () => newCurrentSum;

@@ -2,7 +2,7 @@ function Activity(amount) {
   this.amount = amount;
 }
 
-Activity.prototype.setAmount = function(value) {
+Activity.prototype.setAmount = function (value) {
   if (value > 0) {
     this.amount = value;
     return true;
@@ -11,7 +11,7 @@ Activity.prototype.setAmount = function(value) {
   }
 };
 
-Activity.prototype.getAmount = function() {
+Activity.prototype.getAmount = function () {
   return this.amount;
 };
 
@@ -23,11 +23,11 @@ function Payment(amount, receiver) {
 Payment.prototype = Object.create(Activity.prototype);
 Payment.prototype.constructor = Payment;
 
-Payment.prototype.setReceiver = function(receiver) {
+Payment.prototype.setReceiver = function (receiver) {
   this.receiver = receiver;
 };
 
-Payment.prototype.getReceiver = function(receiver) {
+Payment.prototype.getReceiver = function (receiver) {
   return this.receiver;
 };
 
@@ -39,10 +39,10 @@ function Refund(amount, sender) {
 Refund.prototype = Object.create(Activity.prototype);
 Refund.prototype.constructor = Refund;
 
-Refund.prototype.setSender = function(sender) {
+Refund.prototype.setSender = function (sender) {
   this.sender = sender;
 };
 
-Refund.prototype.getSender = function() {
+Refund.prototype.getSender = function () {
   return this.sender;
 };

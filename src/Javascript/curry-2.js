@@ -1,24 +1,24 @@
 // https://bigfrontend.dev/problem/implement-curry-with-placeholder/discuss
 // please implement curry() which also supports placeholder.
-const  join = (a, b, c) => {
-  return `${a}_${b}_${c}`
-}
+const join = (a, b, c) => {
+  return `${a}_${b}_${c}`;
+};
 
-const curriedJoin = curry(join)
-const _ = curry.placeholder
+const curriedJoin = curry(join);
+const _ = curry.placeholder;
 
-curriedJoin(1, 2, 3) // '1_2_3'
+curriedJoin(1, 2, 3); // '1_2_3'
 
-curriedJoin(_, 2)(1, 3) // '1_2_3'
+curriedJoin(_, 2)(1, 3); // '1_2_3'
 
-curriedJoin(_, _, _)(1)(_, 3)(2) // '1_2_3'
+curriedJoin(_, _, _)(1)(_, 3)(2); // '1_2_3'
 
 /**
  * @param { Function } func
  */
 function curry(func) {
-
-  return function curried(...args) {   // we need to return a function to make it curry-able.
+  return function curried(...args) {
+    // we need to return a function to make it curry-able.
 
     // 1. If the arguments are extra then eliminate them
     // we don't want to pass 6 arguments when the expected is 3.
@@ -26,10 +26,10 @@ function curry(func) {
     const sanitizedArgs = args.slice(0, func.length);
 
     // see if placeholder is available in arguments
-    const hasPlaceholder = sanitizedArgs.some(arg => arg == curry.placeholder);
+    const hasPlaceholder = sanitizedArgs.some((arg) => arg == curry.placeholder);
 
     // if no placeholder and arguements are equal to what expected then it is normal function call
-    if(!hasPlaceholder && sanitizedArgs.length == func.length) {
+    if (!hasPlaceholder && sanitizedArgs.length == func.length) {
       return func.apply(this, sanitizedArgs);
     }
 
@@ -38,13 +38,11 @@ function curry(func) {
     // we pass first and next arguments to helper function
     return function next(...nextArgs) {
       return curried.apply(this, mergeArgs(sanitizedArgs, nextArgs));
-    }
-
-  }
+    };
+  };
 }
 
 function mergeArgs(args, nextArgs) {
-
   let result = [];
 
   // iterate over args (because we need to replace from it)
@@ -52,7 +50,7 @@ function mergeArgs(args, nextArgs) {
   // then we replace that placeholder with first element from nextArgs
   // else we put current element
   args.forEach((arg, idx) => {
-    if(arg == curry.placeholder) {
+    if (arg == curry.placeholder) {
       result.push(nextArgs.shift());
     } else {
       result.push(arg);
@@ -63,4 +61,4 @@ function mergeArgs(args, nextArgs) {
   return [...result, ...nextArgs];
 }
 
-curry.placeholder = Symbol()
+curry.placeholder = Symbol();

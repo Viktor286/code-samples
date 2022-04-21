@@ -15,14 +15,14 @@ class EventEmitter {
         if (subscriptions.size === 0) {
           delete this.subscriptions.eventName;
         }
-      }
+      },
     };
   }
 
   emit(eventName, ...args) {
     const subscriptions = this.subscriptions.get(eventName);
     if (subscriptions) {
-      subscriptions.forEach(cbObj => {
+      subscriptions.forEach((cbObj) => {
         cbObj.callback.apply(this, args);
       });
     }

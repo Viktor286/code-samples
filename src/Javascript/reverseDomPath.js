@@ -12,10 +12,10 @@ function reverseDomPath(element, root) {
    * @param acc  - path accumulator
    * @return {number[]} - path containing children indexes
    */
-  function path(node, acc = []){
-    if(!node) return acc;
+  function path(node, acc = []) {
+    if (!node) return acc;
     else {
-      const index =  node.parent.children.indexOf(node);
+      const index = node.parent.children.indexOf(node);
       acc.push(index);
       return path(node.parent, acc);
     }
@@ -31,5 +31,5 @@ function reverseDomPath(element, root) {
     elem = elem.children[result.pop()];
   }
 
-  return elem
+  return elem;
 }

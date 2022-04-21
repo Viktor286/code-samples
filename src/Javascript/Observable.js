@@ -1,11 +1,11 @@
 // https://bigfrontend.dev/problem/create-an-Observable/discuss
 class Observable {
-
   constructor(setup) {
     this._setup = setup;
   }
 
-  subscribe(subscriber) {  // equivalent to fire
+  subscribe(subscriber) {
+    // equivalent to fire
     // a wrapper function/ object
     // is used to share the closure of outer function and modify the logics
     const subscriberWrapper = {
@@ -28,7 +28,7 @@ class Observable {
       },
       unsubscribe() {
         this.unsubscribed = true;
-      }
+      },
     };
     this._setup(subscriberWrapper);
     return subscriberWrapper;

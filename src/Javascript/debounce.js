@@ -5,11 +5,12 @@
  */
 function debounce(fn, ms) {
   let timeout;
-  return function() {
+  return function () {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this;
     const args = arguments;
 
-    const later = function() {
+    const later = function () {
       timeout = null;
       fn.apply(context, args);
     };

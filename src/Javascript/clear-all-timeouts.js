@@ -1,5 +1,5 @@
 // Implement a function which allows you to clean all timeouts
-const clearAllTimeout = (function() {
+const clearAllTimeout = (function () {
   let callbacks = [];
   const oldTimeout = window.setTimeout;
   window.setTimeout = (fn, time) => {

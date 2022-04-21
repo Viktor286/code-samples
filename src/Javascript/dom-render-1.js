@@ -6,7 +6,7 @@
 function virtualize(element) {
   const result = {
     type: element.tagName.toLowerCase(),
-    props: {}
+    props: {},
   };
 
   const props = {};
@@ -14,7 +14,7 @@ function virtualize(element) {
   // handle props
   if (element.hasAttributes()) {
     for (let { name, value } of element.attributes) {
-      props[name == "class" ? "className" : name] = value;
+      props[name == 'class' ? 'className' : name] = value;
     }
   }
 
@@ -42,14 +42,16 @@ function virtualize(element) {
   return result;
 }
 
-
 /**
  * @param {object} valid object literal presentation
  * @return {HTMLElement}
  */
 function render(obj) {
   // render self
-  let { type, props: { className, children, ...restProps } } = obj;
+  let {
+    type,
+    props: { className, children, ...restProps },
+  } = obj;
   const ele = document.createElement(type);
 
   // add className
@@ -62,9 +64,9 @@ function render(obj) {
       children = [children];
     }
     // render each child and append it to parent
-    children.forEach(child => {
+    children.forEach((child) => {
       // text node
-      if (typeof child == "string") {
+      if (typeof child == 'string') {
         ele.append(document.createTextNode(child));
       } else {
         ele.append(render(child));
@@ -81,49 +83,48 @@ function render(obj) {
   return ele;
 }
 
-
 const json = {
-  type: "div",
+  type: 'div',
   props: {
     children: [
       {
-        type: "h1",
+        type: 'h1',
         props: {
-          children: " this is "
-        }
+          children: ' this is ',
+        },
       },
       {
-        type: "p",
+        type: 'p',
         props: {
-          className: "paragraph",
+          className: 'paragraph',
           children: [
-            " a ",
+            ' a ',
             {
-              type: "button",
+              type: 'button',
               props: {
-                children: " button "
-              }
+                children: ' button ',
+              },
             },
-            " from ",
+            ' from ',
             {
-              type: "a",
+              type: 'a',
               props: {
-                href: "https://bfe.dev",
+                href: 'https://bfe.dev',
                 children: [
                   {
-                    type: "b",
+                    type: 'b',
                     props: {
-                      children: "BFE"
-                    }
+                      children: 'BFE',
+                    },
                   },
-                  ".dev"
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  }
+                  '.dev',
+                ],
+              },
+            },
+          ],
+        },
+      },
+    ],
+  },
 };
 const html = render(json);

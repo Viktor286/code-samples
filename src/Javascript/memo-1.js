@@ -1,11 +1,11 @@
-const memo = (function() {
+const memo = (function () {
   const cache = {};
 
   function _cache(fn) {
-    return function() {
+    return function () {
       const key = JSON.stringify(arguments);
       if (cache[key]) {
-        console.log("Cached value is used");
+        console.log('Cached value is used');
         return cache[key];
       } else {
         cache[key] = fn.apply(this, arguments);
@@ -14,10 +14,10 @@ const memo = (function() {
     };
   }
 
-  return fn => _cache(fn);
+  return (fn) => _cache(fn);
 })();
 
-const fib = memo((n) => n < 2 ? 1 : fib(n - 2) + fib(n - 1));
+const fib = memo((n) => (n < 2 ? 1 : fib(n - 2) + fib(n - 1)));
 console.log(fib(100));
-console.log("Next call");
+console.log('Next call');
 console.log(fib(100));

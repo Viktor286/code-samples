@@ -2,11 +2,11 @@ function sequence(thunks) {
   return function (handler) {
     const composed = thunks.reduce((prev, next) => {
       return (cb) => {
-        prev((err, data) => next(cb, data))
-      }
+        prev((err, data) => next(cb, data));
+      };
     });
-    composed(handler)
-  }
+    composed(handler);
+  };
 }
 
 function parallel(thunks) {
@@ -15,34 +15,34 @@ function parallel(thunks) {
     const onResolve = (err, data) => {
       result.push(data);
       if (result.length === thunks.length) {
-        handler(null, result)
+        handler(null, result);
       }
-    }
-    for(const thunk of thunks) {
+    };
+    for (const thunk of thunks) {
       thunk(onResolve);
     }
-  }
+  };
 }
 
 function race(thunks) {
   let result;
   return function (handler) {
     const onResolve = (err, data) => {
-      if(!result) {
+      if (!result) {
         result = data;
         handler(null, result);
       }
+    };
+    for (const thunk of thunks) {
+      thunk(onResolve);
     }
-    for(const thunk of thunks) {
-      thunk(onResolve)
-    }
-  }
+  };
 }
 
 var getUser = function (userId) {
   return function (cb) {
     setTimeout(function () {
-      cb(null, {userId: userId, name: 'Joe'});
+      cb(null, { userId: userId, name: 'Joe' });
     }, Math.random() * 100);
   };
 };
@@ -68,7 +68,7 @@ parallel([userThunk1, userThunk2])(function (err, users) {
 
 var faster = function (cb) {
   setTimeout(cb.bind(null, null, "I'm faster"), 10);
-}
+};
 race([userThunk1, faster])(function (err, winner) {
   console.log(winner); // I'm faster
 });
