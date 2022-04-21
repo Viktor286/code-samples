@@ -8,7 +8,7 @@ function maxArea(A: number[]): number {
   let r = A.length - 1;
   let maxWater = 0;
 
-  while(l < r) {
+  while (l < r) {
     maxWater = Math.max(maxWater, Math.min(A[l], A[r]) * (r - l));
 
     if (A[l] > A[r]) {
