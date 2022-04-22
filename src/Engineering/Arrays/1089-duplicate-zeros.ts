@@ -7,20 +7,20 @@
 
 function duplicateZeros(arr: number[]) {
   const last = arr.length - 1;
-  const z = arr.reduce((a, n) => (n === 0 ? ++a : a), 0);
-  let v = last + z;
+  const zerosShift = arr.reduce((a, n) => (n === 0 ? ++a : a), 0);
+  let rightWrite = last + zerosShift;
 
-  for (let i = last; i >= 0; i--) {
-    if (arr[i] === 0) {
-      if (v <= last) arr[v] = 0;
-      --v;
-      if (v <= last) arr[v] = 0;
+  for (let leftRead = last; leftRead >= 0; leftRead--) {
+    if (arr[leftRead] === 0) {
+      if (rightWrite <= last) arr[rightWrite] = 0;
+      --rightWrite;
+      if (rightWrite <= last) arr[rightWrite] = 0;
     } else {
-      if (v <= last) {
-        arr[v] = arr[i];
+      if (rightWrite <= last) {
+        arr[rightWrite] = arr[leftRead];
       }
     }
 
-    --v;
+    --rightWrite;
   }
 }
