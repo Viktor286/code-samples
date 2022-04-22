@@ -28,7 +28,7 @@ function longestConsecutiveBF(nums: number[]) {
 // BF optimized with memo and sequence limitation
 function longestConsecutive(nums: number[]) {
   const set = new Set();
-  nums.forEach(e => set.add(e));
+  nums.forEach((e) => set.add(e));
 
   let longestStreak = 0;
 

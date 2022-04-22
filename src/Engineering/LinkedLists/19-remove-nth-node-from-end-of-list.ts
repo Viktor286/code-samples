@@ -13,10 +13,10 @@ interface LinkedListNode {
 // 4) Instead of n-sized queue we can keep two pointers as edges of the queue left & right, where right will be left + n. Then increment both pointers till the end. The left pointer would be len - n node to remove.
 
 function removeNthFromEnd(head: LinkedListNode, n: number) {
- let right = head;
+  let right = head;
   let left = head;
 
-  for(let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     right = right.next;
   }
 
@@ -26,7 +26,7 @@ function removeNthFromEnd(head: LinkedListNode, n: number) {
   if (!right) return head.next;
 
   let prev = head;
-  while(right) {
+  while (right) {
     right = right.next;
     prev = left;
     left = left.next;

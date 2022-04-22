@@ -16,8 +16,8 @@
     "test:cov": "jest --coverage",
     "test:watch": "jest --coverage --watchAll",
     "lint": "eslint src/**/*.ts",
-    "format": "prettier src/**/*.ts src/**/*.js --ignore-path ./.prettierignore --write",
-    "lint:fix": "eslint src/**/*.ts src/**/*.js --fix",
+    "format": "prettier src/**/*/*.[tj]s --ignore-path ./.prettierignore --write",
+    "lint:fix": "eslint src/**/*/*.[tj]s --fix",
     "build:tsc": "tsc -w --listFiles --traceResolution"
   },
   "author": "",
