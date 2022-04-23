@@ -2,7 +2,8 @@
 // https://leetcode.com/problems/design-hashset/
 // Design a HashSet without using any built-in hash table libraries.
 
-function ListNode(val) {
+function ListNode(key, val) {
+  this.key = key;
   this.val = val;
   this.next = null;
 }
