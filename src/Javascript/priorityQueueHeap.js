@@ -1,5 +1,5 @@
 class Node {
-  constructor(val, priority){
+  constructor(val, priority) {
     this.val = val;
     this.priority = priority;
   }
@@ -20,7 +20,7 @@ export class PriorityQueue {
     let i = this.store.length - 1;
     const bubble = this.store[i];
 
-    while(i > 0) {
+    while (i > 0) {
       const parentId = Math.floor((i - 1) / 2);
       const parent = this.store[parentId];
       if (bubble.priority <= parent.priority) break; // min/max
@@ -46,7 +46,7 @@ export class PriorityQueue {
     let i = 0;
     const element = this.store[0];
 
-    while(true) {
+    while (true) {
       let lid = 2 * i + 1;
       let rid = 2 * i + 2;
       if (lid >= len && rid >= len) break;
