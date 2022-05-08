@@ -38,7 +38,7 @@ function isSameTree(p: IBinaryNode, q: IBinaryNode) {
   return true;
 }
 
-function isSubtree(root: IBinaryNode, subRoot: IBinaryNode) {
+function isSubtreeIter(root: IBinaryNode, subRoot: IBinaryNode) {
   if (!root && !subRoot) return true;
   const stack = [root];
   while (stack.length > 0) {
