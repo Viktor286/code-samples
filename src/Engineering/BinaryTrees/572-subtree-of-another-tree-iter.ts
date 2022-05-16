@@ -9,10 +9,24 @@ interface IBinaryNode {
   val: number;
 }
 
-function isSameTree(p: IBinaryNode, q: IBinaryNode) {
-  if (!p && !q) {
-    return true;
+function isSubtreeIter(root: IBinaryNode, subRoot: IBinaryNode) {
+  if (!root && !subRoot) return true;
+  const stack = [root];
+  while (stack.length > 0) {
+    const current = stack.pop();
+    if (current.val === subRoot.val && isSameTree(current, subRoot)) {
+      return true;
+    } else {
+      if (current.right) stack.push(current.right);
+      if (current.left) stack.push(current.left);
+    }
   }
+
+  return false;
+}
+
+function isSameTree(p: IBinaryNode, q: IBinaryNode) {
+  if (!p && !q) return true;
 
   const stack = [p];
   const _stack = [q];
@@ -36,20 +50,4 @@ function isSameTree(p: IBinaryNode, q: IBinaryNode) {
   }
 
   return true;
-}
-
-function isSubtreeIter(root: IBinaryNode, subRoot: IBinaryNode) {
-  if (!root && !subRoot) return true;
-  const stack = [root];
-  while (stack.length > 0) {
-    const current = stack.pop();
-    if (current.val === subRoot.val && isSameTree(current, subRoot)) {
-      return true;
-    } else {
-      if (current.right) stack.push(current.right);
-      if (current.left) stack.push(current.left);
-    }
-  }
-
-  return false;
 }
