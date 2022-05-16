@@ -10,10 +10,19 @@ function shortestPathBinaryMatrix(grid: number[][]) {
 
   if (grid.length < 1 || grid[0][0] !== 0 || grid[m - 1][n - 1] !== 0) return -1;
 
-  const dir = [[-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1]];
+  const dir = [
+    [-1, -1],
+    [-1, 0],
+    [-1, 1],
+    [0, 1],
+    [1, 1],
+    [1, 0],
+    [1, -1],
+    [0, -1],
+  ];
 
   const queue = [[0, 0]]; // [y,x]
-  const visited = new Array(m).fill(undefined).map(e => new Array(n).fill(false));
+  const visited = new Array(m).fill(undefined).map((e) => new Array(n).fill(false));
 
   visited[0][0] = true;
   let path = 0;
@@ -26,15 +35,11 @@ function shortestPathBinaryMatrix(grid: number[][]) {
 
       if (y === m - 1 && x === n - 1) return ++path;
 
-      dir.forEach(d => {
+      dir.forEach((d) => {
         const _y = y + d[0];
         const _x = x + d[1];
 
-        if (
-          _y >= 0 && _y < m && _x >= 0 && _x < n &&
-          grid[_y][_x] === 0 &&
-          visited[_y][_x] !== true
-        ) {
+        if (_y >= 0 && _y < m && _x >= 0 && _x < n && grid[_y][_x] === 0 && visited[_y][_x] !== true) {
           queue.push([_y, _x]);
           visited[_y][_x] = true;
         }
