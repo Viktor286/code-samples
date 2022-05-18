@@ -6,17 +6,6 @@
 //                 'p', 'o', 'u', 'n', 'd', ' ',
 //                 's', 't', 'e', 'a', 'l' ];
 // Output: 'steal pound cake'
-function reverseChars(start: number, end: number, array: string[]): string[] {
-  while (start < end) {
-    const temp = array[start];
-    array[start] = array[end];
-    array[end] = temp;
-    start++;
-    end--;
-  }
-
-  return array;
-}
 
 function reverseWords(charsArray: string[]) {
   let reversedArray = reverseChars(0, charsArray.length - 1, charsArray);
@@ -30,4 +19,16 @@ function reverseWords(charsArray: string[]) {
   }
 
   return reversedArray;
+}
+
+function reverseChars(start: number, end: number, array: string[]): string[] {
+  while (start < end) {
+    const temp = array[start];
+    array[start] = array[end];
+    array[end] = temp;
+    start++;
+    end--;
+  }
+
+  return array;
 }
