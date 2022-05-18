@@ -5,22 +5,20 @@
 // the remaining elements in indexes 2, 4, 5 are out of place. So the answer is 3.
 
 function heightChecker(heights: number[]) {
-  const hCount = new Array(101);
-  heights.forEach((h) => (hCount[h] > 0 ? hCount[h]++ : (hCount[h] = 1)));
+  const heightToFreq = new Array(101);
+  heights.forEach((h) => (heightToFreq[h] > 0 ? heightToFreq[h]++ : (heightToFreq[h] = 1)));
 
   let wrong = 0;
-  let correctIndex = 0;
+  let curHeight = 0;
 
   for (let i = 0; i < heights.length; i++) {
-    while (!hCount[correctIndex]) {
-      correctIndex++;
+    while (heightToFreq[curHeight] < 1) {
+      // go to next viable bucket count
+      curHeight++;
     }
 
-    if (heights[i] !== correctIndex) {
-      wrong++;
-    }
-
-    hCount[correctIndex]--;
+    if (heights[i] !== curHeight) wrong++;
+    heightToFreq[curHeight]--; // bucket count decrement
   }
 
   return wrong;
