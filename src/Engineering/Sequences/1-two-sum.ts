@@ -7,16 +7,15 @@
 // Output: [1,2]
 
 function twoSum(nums: number[], target: number) {
-  const map = new Map();
-  let result: number[] = [];
+  const termToIndex = new Map();
 
   for (let i = 0; i < nums.length; i++) {
-    if (map.has(target - nums[i])) {
-      result = [i, map.get(target - nums[i])];
+    const knownTerm = nums[i];
+    const secondTerm = target - knownTerm;
+    if (termToIndex.has(secondTerm)) {
+      return [termToIndex.get(secondTerm), i];
     } else {
-      map.set(nums[i], i);
+      termToIndex.set(knownTerm, i);
     }
   }
-
-  return result;
 }
