@@ -4,11 +4,10 @@
 // See the details via link above
 
 function construct2DArray(original: number[], m: number, n: number) {
-  const emptyMatrix: [] = [];
+  const emptyMatrix: [] = []; // using naming to highlight requirement specifics
   if (!original || original.length !== m * n) return emptyMatrix;
 
-  const matrix = new Array(m).fill(undefined);
-  for (let i = 0; i < m; i++) matrix[i] = new Array(n).fill(undefined);
+  const matrix = new Array(m).fill(false).map(() => new Array(n).fill(undefined));
 
   let row = 0;
   let col = 0;
