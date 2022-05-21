@@ -35,6 +35,10 @@ parent.prepend(el);
 el.insertAdjacentHTML("beforebegin ", "<div>...");
 el.parentNode.insertBefore(newEl, el);
 
+// .before() .after()
+parent.before(el);
+parent.after(el);
+
 // $newEl.insertAfter(selector);
 // Insert a new node after the selected elements
 el.insertAdjacentHTML("afterend", "<div>...");
