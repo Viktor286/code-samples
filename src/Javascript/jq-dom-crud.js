@@ -40,6 +40,10 @@ el.parentNode.insertBefore(newEl, el);
 el.insertAdjacentHTML("afterend", "<div>...");
 el.parentNode.insertBefore(newEl, el.nextSibling);
 
+// .before() .after()
+parent.before(el);
+parent.after(el);
+
 // $el.clone();
 el.cloneNode(); // deep copy of an element
 
