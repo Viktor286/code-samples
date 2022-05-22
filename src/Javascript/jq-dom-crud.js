@@ -17,18 +17,22 @@ el.appendChild(text);
 el.textContent; // $el.text();
 el.innerHTML; // $el.html();
 
-// $parent.append(newEl | '<div id="container">Hello World</div>');
+// $p.append(newEl | '<div id="container">Hello World</div>');
 // Append child element after the last child of parent element
 // (Just inside the element, after its last child.)
-parent.insertAdjacentHTML("beforeend", "<div>...");
-parent.innerHTML = "<div>..."; // overwrite contents
-parent.appendChild(el); // node only, no text or html
-parent.append(el); // node/text, not html
+p.insertAdjacentHTML("beforeend", "<div>...");
+p.innerHTML = "<div>..."; // overwrite contents
+p.appendChild(el); // node only, no text or html
+p.append(el); // node/text, not html
 
-// $parent.prepend(newEl | '<div id="container">Hello World</div>');
-parent.insertAdjacentHTML("afterbegin", "<div>...");
-parent.insertBefore(el);
-parent.prepend(el);
+// $p.prepend(newEl | '<div id="container">Hello World</div>');
+p.insertAdjacentHTML("afterbegin", "<div>...");
+p.insertBefore(el);
+p.prepend(el);
+
+// .before() .after()
+p.before(el);
+p.after(el);
 
 // $newEl.insertBefore(selector);
 // Insert a new node before the selected elements
@@ -39,10 +43,6 @@ el.parentNode.insertBefore(newEl, el);
 // Insert a new node after the selected elements
 el.insertAdjacentHTML("afterend", "<div>...");
 el.parentNode.insertBefore(newEl, el.nextSibling);
-
-// .before() .after()
-parent.before(el);
-parent.after(el);
 
 // $el.clone();
 el.cloneNode(); // deep copy of an element
