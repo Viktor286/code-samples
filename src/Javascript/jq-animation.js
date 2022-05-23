@@ -18,19 +18,37 @@ function fadeOut(el, ms) {
 function fadeIn(elem, ms) {
   elem.style.opacity = 0;
 
-  if (ms) {
-    let opacity = 0;
-    const timer = setInterval(function() {
-      opacity += 50 / ms;
-      if (opacity >= 1) {
-        clearInterval(timer);
-        opacity = 1;
+  // Default approach: counting value fracture from elapsed time
+  let start, previousTimeStamp;
+
+  const updater = (timestamp) => {
+    if (start === undefined) start = timestamp;
+    const elapsed = timestamp - start;
+
+    if (previousTimeStamp !== timestamp) {
+      elem.style.opacity = elapsed / ms;
+
+      if (elem.style.opacity < 1) {
+        previousTimeStamp = timestamp;
+        window.requestAnimationFrame(updater);
+      } else {
+        elem.style.opacity = 1;
       }
-      elem.style.opacity = opacity;
-    }, 50);
+    }
+  }
+
+  if (ms) {
+    window.requestAnimationFrame(updater);
   } else {
     elem.style.opacity = 1;
   }
+
+  // Alternative approach: Count with predefined fps as incrementPerFrame
+  // not best approach when we don't know exact fps on devices
+  const finalValue = 1;
+  const msPerFrame = 1000 / 60; // 16.666666666666667ms
+  const totalFrames = ms / msPerFrame;
+  const incrementValuePerFrame = finalValue / totalFrames;
 }
 
 // $el.fadeTo('slow',0.15);
