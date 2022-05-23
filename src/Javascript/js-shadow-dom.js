@@ -1,6 +1,6 @@
 const template = document.createElement("template");
 template.innerHTML = `
-<style>.wrapper { background: red; } </>style>
+<style>.wrapper { background: red; } </style>
 <div class="wrapper"><h1>my-component</h1></div>
 `;
 
