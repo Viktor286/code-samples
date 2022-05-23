@@ -17,6 +17,7 @@ el.parentElement;
 el.getAttribute("foo");
 el.setAttribute("foo", "bar");
 el.getAttribute("data-foo");
+el.dataset.foo = "bar";
 
 // Utilities
 Array.isArray(array); // $.isArray(array);
