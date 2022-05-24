@@ -11,23 +11,22 @@
 // Output: false
 
 function isValid(s: string) {
-  const parentheses = new Map([
-    [']', '['],
-    ['}', '{'],
-    [')', '('],
+  // to keep corresponding brackets, let's make a matching map
+  const openToClose = new Map([
+    ['{', '}'],
+    ['(', ')'],
+    ['[', ']'],
   ]);
   const stack = [];
-
   for (let i = 0; i < s.length; i++) {
-    if ([...parentheses.values()].includes(s[i])) {
-      stack.push(s[i]);
+    if (openToClose.has(s[i])) {
+      stack.push(s[i]); // add opening bracket into the stack
     } else {
-      const lastElm = stack.pop();
-      if (lastElm !== parentheses.get(s[i])) {
-        return false;
-      }
+      // it has to be closing bracket AND match the last opening bracket
+      const last = stack.pop();
+      if (s[i] !== openToClose.get(last)) return false;
     }
   }
 
-  return stack.length === 0;
+  return stack.length === 0; // stack should be emtpy
 }
