@@ -3,14 +3,15 @@
 // [4,3,2,1] -> [4,3,2,2]
 
 const plusOne = function (digits: number[]): number[] {
-  for (let i = digits.length - 1; i >= 0; i--) {
-    if (digits[i] < 9) {
-      digits[i]++;
+  for (let d = digits.length - 1; d >= 0; d--) {
+    if (digits[d] < 9) {
+      digits[d]++;
       return digits;
     }
 
-    digits[i] = 0;
+    digits[d] = 0;
   }
-
-  return [1, ...digits];
+  // here we have invariant: zero will be always first,
+  // so just add leading 1
+  return [1, ...digits]; // alt: digits.unshift(1);
 };
