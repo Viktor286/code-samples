@@ -2,7 +2,7 @@
 // Increment the integer by one and return the resulting array of digits.
 // [4,3,2,1] -> [4,3,2,2]
 
-const plusOne = function (digits: number[]): number[] {
+function plusOne(digits: number[]): number[] {
   for (let d = digits.length - 1; d >= 0; d--) {
     if (digits[d] < 9) {
       digits[d]++;
@@ -14,4 +14,4 @@ const plusOne = function (digits: number[]): number[] {
   // here we have invariant: zero will be always first,
   // so just add leading 1
   return [1, ...digits]; // alt: digits.unshift(1);
-};
+}
