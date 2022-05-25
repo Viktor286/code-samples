@@ -23,15 +23,12 @@ function removeDuplicatesCountUnique(nums: number[]) {
   return unique + 1; // index to count
 }
 
-// same approach, but start with 0, increment after assignment
+// same approach, look back and increment after assignment
 function removeDuplicatesCountUniqueAlt(nums: number[]) {
-  let unique = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (unique === 0 || nums[i] != nums[i - 1]) {
-      nums[unique] = nums[i];
-      unique++;
-    }
+  // (start from index 1, assume index 0 is first unique element)
+  let unique = 1;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[i - 1]) nums[unique++] = nums[i];
   }
-
-  return unique; // index to count
+  return unique;
 }
