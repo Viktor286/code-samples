@@ -9,16 +9,15 @@ interface ListNode {
 }
 
 function reverseList(head: ListNode) {
-  let tempHead = null;
+  let previous = null;
 
   while (head) {
-    // 1 -> 2 -> 3
     const next = head.next; // cache the next pointer (null for last)
-    head.next = tempHead; // set curr to prev node (null for first step)
+    head.next = previous; // set curr to prev node (null for first step)
 
-    tempHead = head; // set future prev to curr
+    previous = head; // set future prev to curr
     head = next; // set future curr
   }
 
-  return tempHead;
+  return previous;
 }
