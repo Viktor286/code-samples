@@ -13,7 +13,7 @@ function reverseList(head: ListNode) {
 
   while (head) {
     const next = head.next; // cache the next pointer (null for last)
-    head.next = previous; // set curr to prev node (null for first step)
+    head.next = previous; // set next to prev node (null for first step)
 
     previous = head; // set future prev to curr
     head = next; // set future curr
