@@ -10,7 +10,7 @@ function binarySearch(nums: number[], target: number) {
   while (left <= right) {
     // mid = (left + right) >> 1;
     // mid = Math.floor((right+left) / 2);
-    mid = (right - left) >> (1 + left);
+    mid = ((right - left) >> 1) + left;
 
     if (nums[mid] === target) {
       return mid;
