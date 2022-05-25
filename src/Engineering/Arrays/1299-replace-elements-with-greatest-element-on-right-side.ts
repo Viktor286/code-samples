@@ -9,13 +9,13 @@
 // Instead of moving right to left and "closing window" we can "open window"
 // from right to left:
 // [1]6, [1,6]4, [1,6,4]5, [1,6,4,5]18, [1,6,4,5,18]17
-// then we can recalc max between the last number at the window edge and new number.
+// then we can re-calc max between the last number at the window edge and new number.
 
 const replaceElements = function (arr: number[]) {
   let max = -1;
-  for (let i = arr.length - 1; i >= 0; i--) {
-    const el = arr[i];
-    arr[i] = max;
+  for (let d = arr.length - 1; d >= 0; d--) {
+    const el = arr[d];
+    arr[d] = max;
     if (max < el) max = el;
   }
 
