@@ -6,39 +6,40 @@
 // Input: nums = [1,1,1,2,2,3], k = 2
 // Output: [1,2]
 function topKFrequent(nums: number[], k: number) {
-  const fMap = new Map();
+  const numToFreq = new Map();
 
   // build frequency map
   for (let i = 0; i < nums.length; i++) {
-    if (fMap.has(nums[i])) {
-      fMap.set(nums[i], fMap.get(nums[i]) + 1);
+    if (numToFreq.has(nums[i])) {
+      numToFreq.set(nums[i], numToFreq.get(nums[i]) + 1);
     } else {
-      fMap.set(nums[i], 1);
+      numToFreq.set(nums[i], 1);
     }
   }
 
   // build bucket sort for elements in the frequency map
-  const buckets = new Array(nums.length);
+  const priorityToNumsArr = new Array(nums.length);
 
-  fMap.forEach((frequency, number) => {
-    if (!buckets[frequency - 1]) {
-      buckets[frequency - 1] = [number];
+  // priority = index = frequency - 1
+  numToFreq.forEach((frequency, number) => {
+    if (!priorityToNumsArr[frequency - 1]) {
+      priorityToNumsArr[frequency - 1] = [number];
     } else {
-      buckets[frequency - 1].push(number);
+      priorityToNumsArr[frequency - 1].push(number);
     }
   });
 
   // gather the results
-  const result = [];
-  for (let d = buckets.length - 1; d >= 0 && k > 0; d--) {
-    if (buckets[d] !== undefined) {
+  const topKFrequent = [];
+  for (let d = priorityToNumsArr.length - 1; d >= 0 && k > 0; d--) {
+    if (priorityToNumsArr[d] !== undefined) {
       // handle collisions
-      result.push(buckets[d].pop());
+      topKFrequent.push(priorityToNumsArr[d].pop());
       // stay on the same index if array still not empty
-      if (buckets[d].length > 0) d++;
+      if (priorityToNumsArr[d].length > 0) d++;
       k--;
     }
   }
 
-  return result;
+  return topKFrequent;
 }
