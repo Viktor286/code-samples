@@ -8,9 +8,9 @@ function binarySearch(nums: number[], target: number) {
   let mid;
 
   while (left <= right) {
+    // mid = (left + right) >> 1;
     // mid = Math.floor((right+left) / 2);
-    // mid = left + ((right - left) >> 1)
-    mid = (left + right) >> 1;
+    mid = (right - left) >> (1 + left);
 
     if (nums[mid] === target) {
       return mid;
