@@ -2,25 +2,23 @@
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
 // Given a string s, find the length of the longest substring
 // without repeating characters. Input: s = "abcabcbb" Output: 3
-function lengthOfLongestSubstring(s: string) {
-  if (s.length === 0 || s.length === 1) {
-    return s.length;
-  }
 
-  const seen = new Map();
-  let maxLen = 0;
-  let startSequenceIndex = 0;
+function lengthOfLongestSubstring(s: string) {
+  if (s.length <= 1) return s.length;
+
+  const charToIdx = new Map();
+  let max = 0;
+  let substringStartIdx = 0;
 
   for (let i = 0; i < s.length; i++) {
-    const seenCharIndex = seen.get(s[i]);
-    if (startSequenceIndex <= seenCharIndex) startSequenceIndex = seenCharIndex + 1;
-    // +1 is next char after duplicate
+    const seenIdx = charToIdx.get(s[i]);
+    // handle "abbab" (+1 is next char after duplicate)
+    if (substringStartIdx <= seenIdx) substringStartIdx = seenIdx + 1;
 
-    seen.set(s[i], i);
+    charToIdx.set(s[i], i);
 
-    if (maxLen < i - startSequenceIndex + 1) maxLen = i - startSequenceIndex + 1;
-    // +1 is inclusion of the first element after subtraction
+    max = Math.max(i - substringStartIdx, max);
   }
 
-  return maxLen;
+  return max + 1;
 }
