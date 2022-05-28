@@ -13,7 +13,7 @@ function kthSmallest(root: IBinaryNode | null, k: number): number {
   const stack = [];
   let current = root;
   let i = 0;
-  while (current || stack) {
+  while (current || stack.length > 0) {
     while (current) {
       stack.push(current);
       current = current.left;
