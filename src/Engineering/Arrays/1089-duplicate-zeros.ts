@@ -14,13 +14,9 @@ function duplicateZeros(arr: number[]) {
     if (arr[leftRead] === 0) {
       if (rightWrite <= last) arr[rightWrite] = 0;
       --rightWrite;
-      if (rightWrite <= last) arr[rightWrite] = 0;
-    } else {
-      if (rightWrite <= last) {
-        arr[rightWrite] = arr[leftRead];
-      }
     }
 
+    if (rightWrite <= last) arr[rightWrite] = arr[leftRead];
     --rightWrite;
   }
 }
