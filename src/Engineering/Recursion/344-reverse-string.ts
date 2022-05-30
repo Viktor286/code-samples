@@ -11,7 +11,8 @@ function swap(s: string[], a: number, b: number) {
 
 function reverse(s: string[], l: number, r: number) {
   if (l >= r) return;
-  swap(s, l, r); // move pointers, then start recursion
+  swap(s, l, r);
+  // move pointers, then start recursion
   reverse(s, ++l, --r);
 }
 
