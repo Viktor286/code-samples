@@ -9,7 +9,7 @@ function isValidSudoku(board: number[][] | '.'[][]) {
 
   for (let y = 0; y < board.length; y++) {
     for (let x = 0; x < board[y].length; x++) {
-      const d = board[x][y];
+      const d = board[y][x];
       if (d !== '.') {
         const r = `${x}${d}`;
         const c = `${y}${d}`;
