@@ -19,3 +19,11 @@ function debounce(fn, ms) {
     timeout = setTimeout(later, ms);
   };
 }
+
+function debounceShort(fn, delay = 0) {
+  let postponedTimeout;
+  return function() {
+    clearTimeout(postponedTimeout);
+    postponedTimeout = setTimeout(() => fn.apply(this, arguments), delay)
+  }
+}
