@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState, useCallback} from 'react';
+import React, {useEffect, useRef, useState, useMemo} from 'react';
 import ReactDOM from 'react-dom/client';
 
 // list element factory
@@ -72,8 +72,8 @@ function ListItem({name, phone, id, active, visible, removeContactHandler, toggl
 const ListItemM = React.memo(ListItem);
 
 const ContactsList = ({list, setList}) => {
-  const removeContactHandler = useCallback(removeContact.bind(null, setList), []);
-  const toggleListElementHandler = useCallback(toggleListElement.bind(null, setList), []);
+  const removeContactHandler = useMemo(() => removeContact.bind(null, setList), [setList]);
+  const toggleListElementHandler = useMemo(() => toggleListElement.bind(null, setList), [setList]);
 
   return (<ul>
     {list.map(listItem => (
@@ -93,9 +93,9 @@ function ContactsApp({savedContacts, savedSettings}) {
   const _phone = useRef();
   const _filter = useRef();
 
-  const filterOutListHandler = useCallback(filterOutList.bind(null, setList, setSettings), []);
-  const clearFilterHandler = useCallback(clearFilter.bind(null, setList, setSettings, _filter), [_filter]);
-  const addContactHandler = useCallback(addContact.bind(null, setList), []);
+  const filterOutListHandler = useMemo(() => filterOutList.bind(null, setList, setSettings), [setList, setSettings]);
+  const clearFilterHandler = useMemo(() => clearFilter.bind(null, setList, setSettings, _filter), [setList, setSettings, _filter]);
+  const addContactHandler = useMemo(() => addContact.bind(null, setList), [setList]);
 
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(list));
