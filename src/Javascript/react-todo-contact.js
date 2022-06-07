@@ -1,24 +1,23 @@
-// Mix of the basic Contact and Todo app
-// with filter, localstorage save, actions with binds
-
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState, useCallback} from 'react';
 import ReactDOM from 'react-dom/client';
 
-class ListElement {
-  constructor(name, phone, active = true) {
-    this.name = name;
-    this.phone = phone;
-    this.id = Math.random().toString(36).slice(2);
-    this.active = active;
-    this.visible = true;
+// list element factory
+function createListElement(name = "", phone = "", active = true) {
+  return {
+    name,
+    phone,
+    id: Math.random().toString(36).slice(2),
+    active,
+    visible: true
   }
 }
 
+// modifiers
 const addContact = (setList, e) => {
   e.preventDefault();
   const {name, phone} = e.target;
   setList(prevList => {
-    return [...prevList, new ListElement(name.value, phone.value)];
+    return [...prevList, createListElement(name.value, phone.value)];
   });
 }
 
@@ -54,19 +53,10 @@ const clearFilter = (setList, setSettings, _filter) => {
   setList(list => list.map(el => ({...el, visible: true})))
 }
 
-const ContactsList = ({list, setList}) => {
-  return (<ul>
-    {list.map(listItem => (
-      <ListItem
-        {...listItem}
-        key={listItem.id}
-        removeContactHandler={removeContact.bind(null, setList)}
-        toggleListElementHandler={toggleListElement.bind(null, setList)}
-      />))}
-  </ul>)
-};
-
 function ListItem({name, phone, id, active, visible, removeContactHandler, toggleListElementHandler}) {
+  const count = useRef(1);
+  count.current += 1;
+
   return <>
     <li key={id} data-visible={visible}>
       <span data-id={id}
@@ -74,8 +64,26 @@ function ListItem({name, phone, id, active, visible, removeContactHandler, toggl
             onClick={toggleListElementHandler}
       >{name} | {phone}</span>
       <button data-id={id} onClick={removeContactHandler}>x</button>
-    </li></>
+      ({count.current})
+    </li>
+  </>
 }
+
+const ListItemM = React.memo(ListItem);
+
+const ContactsList = ({list, setList}) => {
+  const removeContactHandler = useCallback(removeContact.bind(null, setList), []);
+  const toggleListElementHandler = useCallback(toggleListElement.bind(null, setList), []);
+
+  return (<ul>
+    {list.map(listItem => (
+      <ListItemM
+        {...listItem}
+        key={listItem.id}
+        {...{removeContactHandler, toggleListElementHandler}}
+      />))}
+  </ul>)
+};
 
 function ContactsApp({savedContacts, savedSettings}) {
   const [list, setList] = useState(savedContacts);
@@ -84,6 +92,10 @@ function ContactsApp({savedContacts, savedSettings}) {
   const _name = useRef();
   const _phone = useRef();
   const _filter = useRef();
+
+  const filterOutListHandler = useCallback(filterOutList.bind(null, setList, setSettings), []);
+  const clearFilterHandler = useCallback(clearFilter.bind(null, setList, setSettings, _filter), [_filter]);
+  const addContactHandler = useCallback(addContact.bind(null, setList), []);
 
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(list));
@@ -98,12 +110,12 @@ function ContactsApp({savedContacts, savedSettings}) {
   return (
     <section id="contacts-app">
       <input type="text" name="filter" ref={_filter} placeholder="filter"
-             onChange={filterOutList.bind(null, setList, setSettings)}
+             onChange={filterOutListHandler}
              value={settings.filter}
       />&nbsp;
-      <span className="clear-filter" onClick={clearFilter.bind(null, setList, setSettings, _filter)}>clear</span>
+      <span className="clear-filter" onClick={clearFilterHandler}>clear</span>
       <ContactsList {...{list, setList}} />
-      <form onSubmit={addContact.bind(null, setList)}>
+      <form onSubmit={addContactHandler}>
         <input type="text" name="name" placeholder="Contact name" ref={_name}/>
         <input type="text" name="phone" placeholder="Number" ref={_phone}/>
         <button type="submit">add</button>
@@ -118,7 +130,5 @@ const savedContacts = JSON.parse(window.localStorage.getItem('contacts') || "[]"
 const savedSettings = JSON.parse(window.localStorage.getItem('contacts-settings') || '{"filter": ""}');
 
 root.render(
-  <React.StrictMode>
-    <ContactsApp {...{savedSettings, savedContacts}}/>
-  </React.StrictMode>
+  <ContactsApp {...{savedSettings, savedContacts}}/>
 );
