@@ -15,30 +15,26 @@ function createListElement(name = "", phone = "", active = true) {
 // modifiers
 const addContact = (setList, e) => {
   e.preventDefault();
-  const {name, phone} = e.target;
+  const {name, phone} = e.currentTarget;
   setList(prevList => {
     return [...prevList, createListElement(name.value, phone.value)];
   });
 }
 
-const removeContact = (setList, e) => {
-  const {id} = e.target.dataset;
-  setList(prevList => {
-    return [...prevList].filter(item => item.id !== id);
-  });
+const removeContact = (setList, targetItem) => {
+  setList(prevList => [...prevList].filter(item => item !== targetItem));
 }
 
-const toggleListElement = (setList, e) => {
-  const {id} = e.target.dataset;
+const toggleListElement = (setList, listItem) => {
   setList(list => {
-    const i = list.findIndex(e => e.id === id);
+    const i = list.findIndex(e => e === listItem);
     const element = list[i];
     return [...list.slice(0, i), {...element, active: !element.active}, ...list.slice(i + 1)];
   });
 }
 
 const filterOutList = (setList, setSettings, e) => {
-  const filter = e.target.value.toLowerCase();
+  const filter = e.currentTarget.value.toLowerCase();
   setSettings(settings => ({...settings, filter}))
   setList(list => list.map(el => {
     const elCopy = {...el};
@@ -53,17 +49,19 @@ const clearFilter = (setList, setSettings, _filter) => {
   setList(list => list.map(el => ({...el, visible: true})))
 }
 
-function ListItem({name, phone, id, active, visible, removeContactHandler, toggleListElementHandler}) {
+function ListItem({listItem, setList}) {
+  const {name, phone, id, active, visible} = listItem;
+
   const count = useRef(1);
   count.current += 1;
 
+  const removeContactHandler = useMemo(() => removeContact.bind(null, setList, listItem), [setList, listItem]);
+  const toggleListElementHandler = useMemo(() => toggleListElement.bind(null, setList, listItem), [setList, listItem]);
+
   return <>
     <li key={id} data-visible={visible}>
-      <span data-id={id}
-            data-active={active}
-            onClick={toggleListElementHandler}
-      >{name} | {phone}</span>
-      <button data-id={id} onClick={removeContactHandler}>x</button>
+      <span data-active={active} onClick={toggleListElementHandler}>{name} | {phone}</span>
+      <button onClick={removeContactHandler}>x</button>
       ({count.current})
     </li>
   </>
@@ -72,16 +70,10 @@ function ListItem({name, phone, id, active, visible, removeContactHandler, toggl
 const ListItemM = React.memo(ListItem);
 
 const ContactsList = ({list, setList}) => {
-  const removeContactHandler = useMemo(() => removeContact.bind(null, setList), [setList]);
-  const toggleListElementHandler = useMemo(() => toggleListElement.bind(null, setList), [setList]);
-
   return (<ul>
     {list.map(listItem => (
-      <ListItemM
-        {...listItem}
-        key={listItem.id}
-        {...{removeContactHandler, toggleListElementHandler}}
-      />))}
+      <ListItemM listItem={listItem} key={listItem.id} setList={setList} />
+    ))}
   </ul>)
 };
 
