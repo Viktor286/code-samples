@@ -6,7 +6,7 @@
 
 function getTime(s: string) {
   let steps = 0;
-  let prev = "A";
+  let prev = 'A';
   for (let i = 0; i < s.length; i++) {
     const current = s[i];
     steps += getShortestPath(c(prev), c(current));
@@ -16,7 +16,7 @@ function getTime(s: string) {
 }
 
 function c(char: string) {
-  return char.charCodeAt(0) - ("A".charCodeAt(0) - 1);
+  return char.charCodeAt(0) - ('A'.charCodeAt(0) - 1);
 }
 
 function getShortestPath(prev: number, current: number) {
