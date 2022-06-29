@@ -19,15 +19,15 @@ function minCameraCover(root: IBinaryNode) {
   covered.camerasCount = 0;
   covered.add(null);
 
-  dfs(root, null, covered);
+  postOrderDfs(root, null, covered);
 
   return covered.camerasCount;
 }
 
-function dfs(node: IBinaryNode, parent: IBinaryNode, covered: ICovered) {
+function postOrderDfs(node: IBinaryNode, parent: IBinaryNode, covered: ICovered) {
   if (node !== null) {
-    dfs(node.left, node, covered);
-    dfs(node.right, node, covered);
+    postOrderDfs(node.left, node, covered);
+    postOrderDfs(node.right, node, covered);
 
     if ((parent == null && !covered.has(node)) || !covered.has(node.left) || !covered.has(node.right)) {
       covered.camerasCount++;
