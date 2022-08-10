@@ -1,4 +1,6 @@
 // https://daveceddia.com/what-is-a-thunk/
+// https://en.wikipedia.org/wiki/Thunk
+
 function createThunkMiddleware(extraArgument) {
   return ({ dispatch, getState }) => next => action => {
     // This gets called for every action you dispatch.
