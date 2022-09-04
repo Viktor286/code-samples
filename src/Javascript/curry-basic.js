@@ -7,11 +7,9 @@ const join = (a, b, c) => {
 
 const curriedJoin = curry(join);
 
-curriedJoin(1, 2, 3); // '1_2_3'
-
-curriedJoin(1)(2, 3); // '1_2_3'
-
-curriedJoin(1, 2)(3); // '1_2_3'
+// curriedJoin(1, 2, 3); // '1_2_3'
+// curriedJoin(1)(2, 3); // '1_2_3'
+// curriedJoin(1, 2)(3); // '1_2_3'
 
 /**
  * @param { (...args: any[]) => any } fn
