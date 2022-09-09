@@ -18,17 +18,17 @@ function inorderTraversalIterative(root: IBinaryNode) {
 
   const collection = [];
   const stack = [];
-  let focus = root;
+  let current = root;
 
-  while (focus != null || stack.length > 0) {
-    while (focus != null) {
-      stack.push(focus);
-      focus = focus.left;
+  while (current != null || stack.length > 0) {
+    while (current != null) {
+      stack.push(current);
+      current = current.left;
     }
 
-    focus = stack.pop();
-    collection.push(focus.val);
-    focus = focus.right;
+    current = stack.pop();
+    collection.push(current.val);
+    current = current.right;
   }
 
   return collection;
