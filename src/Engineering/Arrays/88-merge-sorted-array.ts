@@ -12,7 +12,7 @@
 // Input: nums1 = [0], m = 0, nums2 = [1], n = 1
 // Output: [1]
 
-function merge(nums1: number[], m: number, nums2: number[], n: number) {
+function mergeSortedArray(nums1: number[], m: number, nums2: number[], n: number) {
   let wp = nums1.length - 1;
   let n1 = m - 1;
   let n2 = n - 1;

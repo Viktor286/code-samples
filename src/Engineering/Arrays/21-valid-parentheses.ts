@@ -17,6 +17,7 @@ function isValid(s: string) {
     ['(', ')'],
     ['[', ']'],
   ]);
+
   const stack = [];
   for (let i = 0; i < s.length; i++) {
     if (openToClose.has(s[i])) {
@@ -28,5 +29,5 @@ function isValid(s: string) {
     }
   }
 
-  return stack.length === 0; // stack should be emtpy
+  return stack.length === 0; // stack should be empty
 }

@@ -9,6 +9,7 @@
 
 // two pointers, count index of unique, apply when see unique
 // (start from index 1, assume index 0 is first unique)
+
 function removeDuplicatesCountUnique(nums: number[]) {
   if (nums.length == 0) return 0;
 
@@ -27,8 +28,10 @@ function removeDuplicatesCountUnique(nums: number[]) {
 function removeDuplicatesCountUniqueAlt(nums: number[]) {
   // (start from index 1, assume index 0 is first unique element)
   let unique = 1;
+
   for (let i = 1; i < nums.length; i++) {
     if (nums[i] !== nums[i - 1]) nums[unique++] = nums[i];
   }
+
   return unique;
 }
