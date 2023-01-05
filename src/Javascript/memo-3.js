@@ -7,7 +7,7 @@ function memoize(fn) {
       console.log('FROM CACHE');
       return memoFn.cache[key];
     }
-    console.log('FRESH COMPUTE')
+    console.log('FRESH COMPUTE');
     memoFn.cache[key] = fn(...args);
     return memoFn.cache[key];
   }

@@ -1,7 +1,7 @@
 // const myTest = test.bind({}, 'applied args')
-Function.prototype.bind = function(ctx, ...bindArgs) {
+Function.prototype.bind = function (ctx, ...bindArgs) {
   return (...args) => this.call(ctx, ...bindArgs, ...args);
-}
+};
 
 function test(b, c) {
   console.log(this.a);

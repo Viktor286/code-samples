@@ -4,6 +4,6 @@ module.exports = {
   },
 
   getNamedPrefix(name) {
-  return `[${name}] ${module.exports.timestamp()} `;
-  }
-}
+    return `[${name}] ${module.exports.timestamp()} `;
+  },
+};

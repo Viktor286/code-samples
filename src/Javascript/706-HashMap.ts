@@ -26,7 +26,8 @@ class MyHashMap {
 
   getBucketHead(key: number): LinkNode {
     const bucketIndex = this.hash(key);
-    const bucketHead: LinkNode = this.buckets[bucketIndex] = this.buckets[bucketIndex] || new LinkNode(NaN, NaN);
+    const bucketHead: LinkNode = (this.buckets[bucketIndex] =
+      this.buckets[bucketIndex] || new LinkNode(NaN, NaN));
     return bucketHead;
   }
 

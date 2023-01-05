@@ -2,7 +2,7 @@
 // $el.prevAll($filter);
 function getPreviousSiblings(elem, filter) {
   const sibs = [];
-  while (elem = elem.previousSibling) {
+  while ((elem = elem.previousSibling)) {
     if (elem.nodeType === 3) continue; // ignore text nodes
     if (!filter || filter(elem)) sibs.push(elem);
   }
@@ -22,7 +22,7 @@ function getNextSiblings(elem, filter) {
         elem = nextElem;
       }
     }
-  } while (nextElem = nextElem.nextSibling);
+  } while ((nextElem = nextElem.nextSibling));
   return sibs;
 }
 
@@ -47,7 +47,7 @@ function parentsUntil(el, selector, filter) {
 // $("selector:contains('text')");
 function contains(selector, text) {
   const elements = document.querySelectorAll(selector);
-  return Array.from(elements).filter(function(element) {
+  return Array.from(elements).filter(function (element) {
     return RegExp(text).test(element.textContent);
   });
 }
@@ -58,11 +58,10 @@ function parseHTML(string) {
 
   // Set the base href for the created document so any parsed elements with URLs
   // are based on the document's URL
-  const base = context.createElement("base");
+  const base = context.createElement('base');
   base.href = document.location.href;
   context.head.appendChild(base);
 
   context.body.innerHTML = string;
   return context.body.children;
 }
-

@@ -1,9 +1,9 @@
 // JQuery replacements: Selectors
-let el = document.querySelector("div.HTMLElement") || new HTMLElement();
-el.matches(".HTMLElement"); // Return true if it matches the query selector
+let el = document.querySelector('div.HTMLElement') || new HTMLElement();
+el.matches('.HTMLElement'); // Return true if it matches the query selector
 
-el.closest(":not(div)"); // $el.closest(selector);
-document.querySelectorAll("a[target=_blank]"); // $('a[target=_blank]');
+el.closest(':not(div)'); // $el.closest(selector);
+document.querySelectorAll('a[target=_blank]'); // $('a[target=_blank]');
 // $el.siblings();
 [...el.parentNode.children].filter((child) => child !== element);
 Array.from(el.parentNode.children).filter((child) => child !== element);
@@ -14,10 +14,10 @@ el.previousElementSibling;
 el.parentElement;
 
 // .attr('foo'), .attr('foo', 'bar') .data('foo')
-el.getAttribute("foo");
-el.setAttribute("foo", "bar");
-el.getAttribute("data-foo");
-el.dataset.foo = "bar";
+el.getAttribute('foo');
+el.setAttribute('foo', 'bar');
+el.getAttribute('data-foo');
+el.dataset.foo = 'bar';
 
 // Utilities
 Array.isArray(array); // $.isArray(array);
@@ -26,7 +26,7 @@ array.indexOf(item) > -1;
 array.includes(item);
 
 // $.isFunction(item);
-Object.prototype.toString.call(item) === "[object Function]";
+Object.prototype.toString.call(item) === '[object Function]';
 
 // $.isEmptyObject(obj);
 Object.keys(obj).length === 0;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function useReducer(reducer, initialState) {
   const [state, setState] = useState(initialState);
@@ -14,10 +14,13 @@ function useReducer(reducer, initialState) {
 function todosReducer(state, action) {
   switch (action.type) {
     case 'add':
-      return [...state, {
-        text: action.text,
-        completed: false
-      }];
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false,
+        },
+      ];
     // ... other actions ...
     default:
       return state;

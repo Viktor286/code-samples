@@ -4,14 +4,14 @@ function fadeOut(el, ms) {
   if (ms) {
     el.style.transition = `opacity ${ms} ms`;
     el.addEventListener(
-      "transitionend",
-      function(event) {
-        el.style.display = "none";
+      'transitionend',
+      function (event) {
+        el.style.display = 'none';
       },
-      false
+      false,
     );
   }
-  el.style.opacity = "0";
+  el.style.opacity = '0';
 }
 
 // Native fadeIn
@@ -35,7 +35,7 @@ function fadeIn(elem, ms) {
         elem.style.opacity = 1;
       }
     }
-  }
+  };
 
   if (ms) {
     window.requestAnimationFrame(updater);
@@ -52,30 +52,30 @@ function fadeIn(elem, ms) {
 }
 
 // $el.fadeTo('slow',0.15);
-el.style.transition = "opacity 3s"; // assume 'slow' equals 3 seconds
-el.style.opacity = "0.15";
+el.style.transition = 'opacity 3s'; // assume 'slow' equals 3 seconds
+el.style.opacity = '0.15';
 
 // $el.fadeToggle();
-el.style.transition = "opacity 3s";
+el.style.transition = 'opacity 3s';
 const { opacity } = el.ownerDocument.defaultView.getComputedStyle(el, null);
-el.style.opacity = opacity === "1" ? "0" : "1";
+el.style.opacity = opacity === '1' ? '0' : '1';
 
 // slideUp/slideDown
-const originHeight = "100px";
-el.style.transition = "height 3s";
-el.style.height = "0px"; // slideUp
+const originHeight = '100px';
+el.style.transition = 'height 3s';
+el.style.height = '0px'; // slideUp
 el.style.height = originHeight; // slideDown
 
 // $el.slideToggle();
-const originHeight = "100px";
-el.style.transition = "height 3s";
+const originHeight = '100px';
+el.style.transition = 'height 3s';
 const { height } = el.ownerDocument.defaultView.getComputedStyle(el, null);
 if (parseInt(height, 10) === 0) {
   el.style.height = originHeight;
 } else {
-  el.style.height = "0px";
+  el.style.height = '0px';
 }
 
 // $el.animate({ params }, speed);
-el.style.transition = "all " + speed;
+el.style.transition = 'all ' + speed;
 Object.keys(params).forEach((key) => (el.style[key] = params[key]));

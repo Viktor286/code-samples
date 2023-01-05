@@ -3,18 +3,18 @@
 window.getComputedStyle(el, null); // null means not to return pseudo styles
 
 // $(".element").addClass("focus") .removeClass("focus") .toggleClass("focus")
-el.classList.add("focus");
-el.classList.remove("focus");
-el.classList.toggle("focus");
-el.classList.replace("focus", "blurred");
-el.classList.contains("focus"); // $(".element").hasClass("focus")
+el.classList.add('focus');
+el.classList.remove('focus');
+el.classList.toggle('focus');
+el.classList.replace('focus', 'blurred');
+el.classList.contains('focus'); // $(".element").hasClass("focus")
 
 // $(".element").hide();
-document.querySelectorAll(".element").forEach(el => el.style.display = "none");
+document.querySelectorAll('.element').forEach((el) => (el.style.display = 'none'));
 
 // $(".element").css("color", "#000");
-el.style.color = "#000";
-el.style.cssText = "color: #000; background-color: red";
+el.style.color = '#000';
+el.style.cssText = 'color: #000; background-color: red';
 
 // ===== Width & Height, Position & Offset
 // $(window).height();
@@ -29,7 +29,7 @@ const height = Math.max(
   body.scrollHeight,
   html.clientHeight,
   html.offsetHeight,
-  html.scrollHeight
+  html.scrollHeight,
 );
 
 // $el.height();
@@ -51,7 +51,7 @@ function getOffset(el) {
   const box = el.getBoundingClientRect();
   return {
     top: box.top + window.pageYOffset - document.documentElement.clientTop,
-    left: box.left + window.pageXOffset - document.documentElement.clientLeft
+    left: box.left + window.pageXOffset - document.documentElement.clientLeft,
   };
 }
 

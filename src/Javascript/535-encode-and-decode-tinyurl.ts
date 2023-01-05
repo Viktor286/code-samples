@@ -2,7 +2,7 @@
 // https://leetcode.com/problems/encode-and-decode-tinyurl/
 
 const map = new Map();
-const baseUrl = "http://tinyurl.com/";
+const baseUrl = 'http://tinyurl.com/';
 
 /**
  * Encodes a URL to a shortened URL.

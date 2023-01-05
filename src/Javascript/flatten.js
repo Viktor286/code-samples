@@ -24,4 +24,4 @@ function flattenSimple(arr) {
   return result;
 }
 
-console.log(JSON.stringify(flatten(test)) === "[1,2,3,4,5,6,7,8,9]");
+console.log(JSON.stringify(flatten(test)) === '[1,2,3,4,5,6,7,8,9]');

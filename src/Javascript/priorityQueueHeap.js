@@ -56,7 +56,8 @@ export class PriorityQueue {
       if (
         lid >= len ||
         (rid < len && this.store[rid].priority > this.store[lid].priority) // min/max
-      ) targetId = rid;
+      )
+        targetId = rid;
 
       if (this.store[targetId].priority <= element.priority) break; // min/max
       // swap
